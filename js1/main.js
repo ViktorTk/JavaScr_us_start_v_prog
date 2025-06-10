@@ -1705,14 +1705,76 @@
 // const arr4Copy = arr4.flat() // Дополнительно метод убирает пустые ячейки
 // console.log(arr4Copy)
 
-// Урок 82 - метод "flatMap"(используется для преобразования каждого элемента массива)
-const arr = [1, 2, 3, 4]
-// const arrCopy = arr.flat().map((el) => el * 2) // равносильно следующей записи:
-const arrCopy = arr.flatMap((el) => el * 2)
-console.log(arrCopy)
+// // Урок 82 - метод "flatMap"(используется для преобразования каждого элемента массива)
+// const arr = [1, 2, 3, 4]
+// // const arrCopy = arr.flat().map((el) => el * 2) // равносильно следующей записи:
+// const arrCopy = arr.flatMap((el) => el * 2)
+// console.log(arrCopy)
+
+// console.log(`-------------------------------------------------------`)
+
+// const arr1 = [1, 2, 3, 4, 5]
+// const arr1Copy = arr1.flatMap((num) => (num % 2 === 0 ? num : []))
+// console.log(arr1Copy)
+
+// // Урок 83 - методы "split"(из строки - в массив; указывается разделитель) и "join"(из массива - в строку; указывается разделитель)
+// const str = 'Hello world'
+// const arr = str.split(' ')
+// console.log(str)
+// console.log(arr)
+
+// console.log(`-------------------------------------------------------`)
+
+// const str1 = 'apple, banana, kiwi'
+// const arr1 = str1.split(', ')
+// console.log(arr1)
+
+// console.log(`-------------------------------------------------------`)
+
+// const str2 = 'apple, banana, kiwi'
+// const arr2 = str2.split(', ', 2) // указали индекс того, до какого элемента ищем
+// console.log(arr2)
+
+// console.log(`-------------------------------------------------------`)
+
+// const str3 = 'JavaScript'
+// const arr3 = str3.split('')
+// console.log(arr3)
+
+// console.log(`-------------------------------------------------------`)
+// console.log(`-------------------------------------------------------`)
+
+// const arrStr = ['apple', 'banana', 'kiwi']
+// const strA = arrStr.join(' ')
+// console.log(strA)
+// console.log(arrStr)
+
+// console.log(`-------------------------------------------------------`)
+
+// const js = 'javascript'
+// console.log(js)
+
+// const jsArr = js.split('')
+// console.log(jsArr)
+
+// const jsJoin = jsArr.join('')
+// console.log(jsJoin)
+
+// Урок 84 - практика
+// 1) найти сумму всех элементов массива
+const arr = [1, 2, 3, 4, 5]
+const sum = arr.reduce((acc, elem) => (acc += elem))
+console.log(sum)
 
 console.log(`-------------------------------------------------------`)
+// 2) найти самый большой элемент массива
+const arr1 = [10, 5, 20, 8, 15, 27]
+const maxElem1 = Math.max(...arr1)
+console.log(maxElem1)
 
-const arr1 = [1, 2, 3, 4, 5]
-const arr1Copy = arr1.flatMap((num) => (num % 2 === 0 ? num : []))
-console.log(arr1Copy)
+console.log(`-------------------------------------------------------`)
+// 3) объединить несколько массивов в один массив
+const arr2 = [1, 2]
+const arr3 = [3, 4]
+const arrConcat = arr2.concat(arr3)
+console.log(arrConcat)
