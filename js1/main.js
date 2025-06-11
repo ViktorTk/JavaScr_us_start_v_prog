@@ -1760,21 +1760,120 @@
 // const jsJoin = jsArr.join('')
 // console.log(jsJoin)
 
-// Урок 84 - практика
-// 1) найти сумму всех элементов массива
-const arr = [1, 2, 3, 4, 5]
-const sum = arr.reduce((acc, elem) => (acc += elem))
-console.log(sum)
+// // Урок 84 - практика
+// // 1) найти сумму всех элементов массива
+// const arr = [1, 2, 3, 4, 5]
+// const sum = arr.reduce((acc, elem) => (acc += elem))
+// console.log(sum)
+
+// console.log(`-------------------------------------------------------`)
+// // 2) найти самый большой элемент массива
+// const arr1 = [10, 5, 20, 8, 15, 27]
+// const maxElem1 = Math.max(...arr1)
+// console.log(maxElem1)
+
+// console.log(`-------------------------------------------------------`)
+// // 3) объединить несколько массивов в один массив
+// const arr2 = [1, 2]
+// const arr3 = [3, 4]
+// const arrConcat = arr2.concat(arr3)
+// console.log(arrConcat)
+
+// // Урок 85 - методы строк
+// const str1 = 'Далеко-далеко, за словесными.'
+// const str2 = 'Далеко-далеко, за словесными горами.'
+// const str3 = str1 + ' ' + str2
+// console.log(str3)
+
+// console.log(`-------------------------------------------------------`)
+
+// const str4 = 'Далеко-далеко, за словесными горами.'
+// console.log(str4.length)
+
+// console.log(`-------------------------------------------------------`)
+
+// const strOne = 'Lorem, ipsum'
+// const firstChar = strOne[0]
+// const lastChar = strOne[strOne.length - 1]
+// console.log(firstChar)
+// console.log(lastChar)
+
+// console.log(`-------------------------------------------------------`)
+
+// const strHello = 'Hello, world'
+// const charStr = strHello.split(' ')
+
+// console.log(charStr)
+// console.log(strHello)
+
+// charStr.push('!!!!!!!!!!!!')
+
+// console.log(charStr)
+
+// const newStr = charStr.join('')
+// console.log(newStr)
+
+// // Урок 86 - продолжение
+// // const arr = ['hello', 'world']
+// // console.log(arr[0].toLocaleUpperCase())
+
+// const str = 'Hello, world'
+// const strUpper = str.toLocaleUpperCase()
+// const strLow = str.toLocaleLowerCase()
+
+// console.log(strUpper)
+// console.log(strLow)
+
+// console.log(`-------------------------------------------------------`)
+
+// const str1 = 'Hello, world'
+// console.log(str1.slice(1, 3)) // указываем с какого по какой индекс идет срез; указав вторым аргументом "-1" = срез по последний символ
+
+// console.log(`-------------------------------------------------------`)
+
+// const strM = 'Далеко-далеко, за словесными.Далеко-далеко, за'
+// console.log(strM.replace('за', 'TRUE')) // находит ПЕРВОЕ указанное значение, меняет на второе указанное значение
+// console.log(strM.replaceAll('за', '----------')) // находит ВСЕ соответствия указанному значению, меняет на второе указанное значение
+
+// console.log(`-------------------------------------------------------`)
+
+// const strA = 'Далеко-далеко, за словесными.Далеко-далеко, за'
+// console.log(strA)
+// console.log(typeof strA)
+
+// console.log(`-------------------------------------------------------`)
+
+// const arr = [1, 2, 3, 'hello', 4, 5, 'hello']
+// console.log(arr)
+// console.log(typeof arr)
+
+// Урок 87 - продолжение
+const str1 = 'Далеко-далеко, за словесными'
+console.log(str1.indexOf('за'))
+
+const name = 'Consta'
+const greeting = `Hello ${name}`
+console.log(greeting)
 
 console.log(`-------------------------------------------------------`)
-// 2) найти самый большой элемент массива
-const arr1 = [10, 5, 20, 8, 15, 27]
-const maxElem1 = Math.max(...arr1)
-console.log(maxElem1)
+
+const reverseStr = (str) => str.split('').reverse().join('')
+console.log(reverseStr('hello'))
 
 console.log(`-------------------------------------------------------`)
-// 3) объединить несколько массивов в один массив
-const arr2 = [1, 2]
-const arr3 = [3, 4]
-const arrConcat = arr2.concat(arr3)
-console.log(arrConcat)
+
+function lg1(str) {
+  const words = str.split(' ')
+  let maxWords = 0
+  for (let word of words) {
+    if (word.length > maxWords) {
+      maxWords = word.length
+    }
+  }
+  return maxWords
+}
+console.log(
+  lg1(
+    'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.'
+  )
+)
