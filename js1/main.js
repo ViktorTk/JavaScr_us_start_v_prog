@@ -1847,33 +1847,292 @@
 // console.log(arr)
 // console.log(typeof arr)
 
-// Урок 87 - продолжение
-const str1 = 'Далеко-далеко, за словесными'
-console.log(str1.indexOf('за'))
+// // Урок 87 - продолжение
+// const str1 = 'Далеко-далеко, за словесными'
+// console.log(str1.indexOf('за'))
 
-const name = 'Consta'
-const greeting = `Hello ${name}`
-console.log(greeting)
+// const name = 'Costa'
+// const greeting = `Hello ${name}`
+// console.log(greeting)
+
+// console.log(`-------------------------------------------------------`)
+
+// const reverseStr = (str) => str.split('').reverse().join('')
+// console.log(reverseStr('hello'))
+
+// console.log(`-------------------------------------------------------`)
+
+// function lg1(str) {
+//   const words = str.split(' ')
+//   let maxWords = 0
+//   for (let word of words) {
+//     if (word.length > maxWords) {
+//       maxWords = word.length
+//     }
+//   }
+//   return maxWords
+// }
+// console.log(
+//   lg1(
+//     'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.'
+//   )
+// )
+
+// // Урок 88 - деструктуризация массивов
+// // const array = ['one', 'two', 'three']
+// // const [a, b, c] = array
+// // console.log(a)
+// // console.log(b)
+// // console.log(c)
+
+// // const array1 = ['one', 'two', 'three', true, false]
+// // const [a1, b1, c1, d1, e1] = array1
+// // console.log(a1, b1, c1, d1, e1)
+
+// // console.log(`-------------------------------------------------------`)
+
+// // const arr = [1, 2, 3, 4, 5, 6, 'hi']
+// // const [c2, c3, ...c4] = arr
+// // console.log(c2)
+// // console.log(c3)
+// // console.log(c4)
+
+// // console.log(`-------------------------------------------------------`)
+
+// const arr2 = ['one', 'two']
+// const [first, second, admin = true] = arr2
+// console.log(first)
+// console.log(second)
+// console.log(admin)
+
+// let a = true
+// let b = false
+// // [a, b] = [b, a]
+// console.log(a)
+// console.log(b)
+
+// const arr = [10, 20, 500, 343, -434]
+// const sum1 = (...arrg) => arrg.reduce((acc, value) => acc + value, 0)
+// console.log(sum1(...arr))
+
+// const arrNum = [11, 22, 33]
+// const sum = (a1, b1, c1) => a1 + b1 + c1
+// console.log(sum(...arrNum))
+
+// Урок 89 - структура данных "Map" (коллекция пар "ключ-значение")
+let map = new Map()
+map.set('key1', 'value') // .set - добавление элемента в коллекцию
+map.set('key2', 'value2').set('key3', true).set(123, false).set(true, 'open')
+
+console.log(map)
 
 console.log(`-------------------------------------------------------`)
 
-const reverseStr = (str) => str.split('').reverse().join('')
-console.log(reverseStr('hello'))
+let map1 = new Map()
+map1.set(false, 'closed').set(true, { open: 1200 })
+
+console.log(map1)
+console.log(map1.get(true)) // получаем значению по обращению к ключу
+console.log(map1.get(false))
 
 console.log(`-------------------------------------------------------`)
 
-function lg1(str) {
-  const words = str.split(' ')
-  let maxWords = 0
-  for (let word of words) {
-    if (word.length > maxWords) {
-      maxWords = word.length
-    }
-  }
-  return maxWords
+let map2 = new Map()
+map2.set(20, [1, 2, 3]).set('city', 'London')
+
+console.log(map2)
+console.log(map2.get(20))
+console.log(map2.has(20)) // проверка, существует ли искомый ключ или нет
+console.log(map2.has(123))
+
+console.log(`-------------------------------------------------------`)
+
+let map3 = new Map()
+map3.set('color1', 'red').set('backgroundColor', 'pink').set('isAdmin', true)
+
+console.log(map3)
+console.log(map3.size) // узнаем размер коллекции
+
+map3.delete('color1') // удаление элементов из коллекции
+console.log(map3)
+console.log(map3.size)
+
+console.log(`-------------------------------------------------------`)
+
+const map4 = new Map()
+map4.set('name', 'Costa').set('age', 29).set('car', 'Toyota')
+console.log(map4)
+
+for (let key of map4.keys()) {
+  // получаем с помощью цикла ТОЛЬКО ключи
+  console.log(key)
 }
-console.log(
-  lg1(
-    'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.'
-  )
-)
+console.log(`---`)
+for (let key of map4.values()) {
+  // получаем с помощью цикла ТОЛЬКО значения
+  console.log(key)
+}
+console.log(`---`)
+for (let key of map4.entries()) {
+  // получаем с помощью цикла массив ключ-значение
+  console.log(key)
+}
+console.log(`---`)
+for (let [key, item] of map4.entries()) {
+  // используем деструктуризацию массива для вывода ключ-значений
+  console.log(key, item)
+}
+
+console.log(`-------------------------------------------------------`)
+
+const map5 = new Map()
+map5.set('name', 'Costa').set('age', 29).set('car', 'Toyota')
+console.log(map5)
+
+map5.clear() // полное очищение коллекции
+console.log(map5)
+
+console.log(`-------------------------------------------------------`)
+
+const obj1 = { name: 'john' }
+const obj2 = { name: 'Costa', age: 29 }
+
+const objMap = new Map()
+
+objMap.set(obj1, 'value1').set(obj2, 'value2')
+
+console.log(objMap.get(obj1))
+console.log(objMap.get(obj2))
+console.log(objMap)
+
+console.log(`-------------------------------------------------------`)
+
+const map6 = new Map([
+  // добавляем массив сразу при объявлении "Map"
+  ['red', 'красный'],
+  ['blue', 'синий'],
+])
+
+console.log(map6)
+console.log(map6.has('red'))
+console.log(map6.get('red'))
+console.log(map6.delete('red'))
+console.log(map6)
+
+console.log(`-------------------------------------------------------`)
+
+const myMap = new Map([
+  ['key1', 'value1'],
+  ['key2', 'value2'],
+  ['key3', 'value3'],
+])
+
+myMap.forEach((value, key) => {
+  console.log(key, value)
+})
+
+console.log(`-------------------------------------------------------`)
+
+const arr10 = [1, 2, 3, 3, 4]
+const myMap1 = new Map([
+  ['key5', true],
+  [arr10, 'value 20'],
+])
+
+console.log(myMap1)
+console.log(myMap1.get(arr10))
+
+console.log(`-------------------------------------------------------`)
+
+const map10 = new Map([
+  ['key1', 'value1'],
+  ['key2', 'value2'],
+])
+
+const mapToArr = Array.from(map10) // создали новый массив из пар ключа и значения (из массивоподобного или итерируемого объекта, или то, на чем сработает свойство .length)
+console.log(mapToArr)
+console.log(map10)
+
+console.log(`-------------------------------------------------------`)
+
+const str = 'hello'
+const str1 = Array.from(str)
+console.log(str1)
+
+const str2 = [...str]
+console.log(str2)
+
+console.log(`-------------------------------------------------------`)
+
+const map11 = new Map([
+  ['key1', 'value1'],
+  ['key2', 'value2'],
+])
+
+const arr = []
+
+map11.forEach((item, index) => {
+  // ручное преобразование объекта "Map" в массив-массивов
+  arr.push([item, index])
+})
+
+console.log(arr)
+
+console.log(`-------------------------------------------------------`)
+
+const map12 = new Map([
+  ['key1', 'value1'],
+  ['key2', 'value2'],
+])
+
+const mapToObject = Object.fromEntries(map12) // создает из массива-массивов объект
+console.log(mapToObject)
+
+console.log(`-------------------------------------------------------`)
+
+const arr2 = [
+  [1, 2],
+  [3, 4],
+]
+const arr3 = Object.fromEntries(arr2)
+console.log(arr3)
+
+console.log(`-------------------------------------------------------`)
+
+const myMap20 = new Map([
+  ['a', 10],
+  ['b', false],
+])
+
+const obj5 = Object.fromEntries(myMap20)
+console.log(obj5)
+
+console.log(`-------------------------------------------------------`)
+
+const myMap30 = new Map([
+  ['tel', +78005553535],
+  ['city', 'London'],
+])
+
+function mapToMyObject(map) {
+  let obj = {}
+
+  for (let [key, value] of map) {
+    obj[key] = value
+  }
+  return obj
+}
+
+let obj22 = mapToMyObject(myMap30)
+
+console.log(obj22)
+
+console.log(`-------------------------------------------------------`)
+
+const myMap31 = new Map([
+  ['tel', +78005553535],
+  ['city', 'London'],
+])
+
+myMap31.set(NaN, 'привет мир')
+console.log(myMap31.get(NaN)) // допускается обращению к ключу "NaN", не смотря на то, что в стандартном коде NaN !== NaN
