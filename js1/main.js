@@ -1919,220 +1919,299 @@
 // const sum = (a1, b1, c1) => a1 + b1 + c1
 // console.log(sum(...arrNum))
 
-// Урок 89 - структура данных "Map" (коллекция пар "ключ-значение")
-let map = new Map()
-map.set('key1', 'value') // .set - добавление элемента в коллекцию
-map.set('key2', 'value2').set('key3', true).set(123, false).set(true, 'open')
+// // Урок 89 - структура данных "Map" (коллекция пар "ключ-значение")
+// let map = new Map()
+// map.set('key1', 'value') // .set - добавление элемента в коллекцию
+// map.set('key2', 'value2').set('key3', true).set(123, false).set(true, 'open')
 
-console.log(map)
+// console.log(map)
+
+// console.log(`-------------------------------------------------------`)
+
+// let map1 = new Map()
+// map1.set(false, 'closed').set(true, { open: 1200 })
+
+// console.log(map1)
+// console.log(map1.get(true)) // получаем значению по обращению к ключу
+// console.log(map1.get(false))
+
+// console.log(`-------------------------------------------------------`)
+
+// let map2 = new Map()
+// map2.set(20, [1, 2, 3]).set('city', 'London')
+
+// console.log(map2)
+// console.log(map2.get(20))
+// console.log(map2.has(20)) // проверка, существует ли искомый ключ или нет
+// console.log(map2.has(123))
+
+// console.log(`-------------------------------------------------------`)
+
+// let map3 = new Map()
+// map3.set('color1', 'red').set('backgroundColor', 'pink').set('isAdmin', true)
+
+// console.log(map3)
+// console.log(map3.size) // узнаем размер коллекции
+
+// map3.delete('color1') // удаление элементов из коллекции
+// console.log(map3)
+// console.log(map3.size)
+
+// console.log(`-------------------------------------------------------`)
+
+// const map4 = new Map()
+// map4.set('name', 'Costa').set('age', 29).set('car', 'Toyota')
+// console.log(map4)
+
+// for (let key of map4.keys()) {
+//   // получаем с помощью цикла ТОЛЬКО ключи
+//   console.log(key)
+// }
+// console.log(`---`)
+// for (let key of map4.values()) {
+//   // получаем с помощью цикла ТОЛЬКО значения
+//   console.log(key)
+// }
+// console.log(`---`)
+// for (let key of map4.entries()) {
+//   // получаем с помощью цикла массив ключ-значение
+//   console.log(key)
+// }
+// console.log(`---`)
+// for (let [key, item] of map4.entries()) {
+//   // используем деструктуризацию массива для вывода ключ-значений
+//   console.log(key, item)
+// }
+
+// console.log(`-------------------------------------------------------`)
+
+// const map5 = new Map()
+// map5.set('name', 'Costa').set('age', 29).set('car', 'Toyota')
+// console.log(map5)
+
+// map5.clear() // полное очищение коллекции
+// console.log(map5)
+
+// console.log(`-------------------------------------------------------`)
+
+// const obj1 = { name: 'john' }
+// const obj2 = { name: 'Costa', age: 29 }
+
+// const objMap = new Map()
+
+// objMap.set(obj1, 'value1').set(obj2, 'value2')
+
+// console.log(objMap.get(obj1))
+// console.log(objMap.get(obj2))
+// console.log(objMap)
+
+// console.log(`-------------------------------------------------------`)
+
+// const map6 = new Map([
+//   // добавляем массив сразу при объявлении "Map"
+//   ['red', 'красный'],
+//   ['blue', 'синий'],
+// ])
+
+// console.log(map6)
+// console.log(map6.has('red'))
+// console.log(map6.get('red'))
+// console.log(map6.delete('red'))
+// console.log(map6)
+
+// console.log(`-------------------------------------------------------`)
+
+// const myMap = new Map([
+//   ['key1', 'value1'],
+//   ['key2', 'value2'],
+//   ['key3', 'value3'],
+// ])
+
+// myMap.forEach((value, key) => {
+//   console.log(key, value)
+// })
+
+// console.log(`-------------------------------------------------------`)
+
+// const arr10 = [1, 2, 3, 3, 4]
+// const myMap1 = new Map([
+//   ['key5', true],
+//   [arr10, 'value 20'],
+// ])
+
+// console.log(myMap1)
+// console.log(myMap1.get(arr10))
+
+// console.log(`-------------------------------------------------------`)
+
+// const map10 = new Map([
+//   ['key1', 'value1'],
+//   ['key2', 'value2'],
+// ])
+
+// const mapToArr = Array.from(map10) // создали новый массив из пар ключа и значения (из массивоподобного или итерируемого объекта, или то, на чем сработает свойство .length)
+// console.log(mapToArr)
+// console.log(map10)
+
+// console.log(`-------------------------------------------------------`)
+
+// const str = 'hello'
+// const str1 = Array.from(str)
+// console.log(str1)
+
+// const str2 = [...str]
+// console.log(str2)
+
+// console.log(`-------------------------------------------------------`)
+
+// const map11 = new Map([
+//   ['key1', 'value1'],
+//   ['key2', 'value2'],
+// ])
+
+// const arr = []
+
+// map11.forEach((item, index) => {
+//   // ручное преобразование объекта "Map" в массив-массивов
+//   arr.push([item, index])
+// })
+
+// console.log(arr)
+
+// console.log(`-------------------------------------------------------`)
+
+// const map12 = new Map([
+//   ['key1', 'value1'],
+//   ['key2', 'value2'],
+// ])
+
+// const mapToObject = Object.fromEntries(map12) // создает из массива-массивов объект
+// console.log(mapToObject)
+
+// console.log(`-------------------------------------------------------`)
+
+// const arr2 = [
+//   [1, 2],
+//   [3, 4],
+// ]
+// const arr3 = Object.fromEntries(arr2)
+// console.log(arr3)
+
+// console.log(`-------------------------------------------------------`)
+
+// const myMap20 = new Map([
+//   ['a', 10],
+//   ['b', false],
+// ])
+
+// const obj5 = Object.fromEntries(myMap20)
+// console.log(obj5)
+
+// console.log(`-------------------------------------------------------`)
+
+// const myMap30 = new Map([
+//   ['tel', +78005553535],
+//   ['city', 'London'],
+// ])
+
+// function mapToMyObject(map) {
+//   let obj = {}
+
+//   for (let [key, value] of map) {
+//     obj[key] = value
+//   }
+//   return obj
+// }
+
+// let obj22 = mapToMyObject(myMap30)
+
+// console.log(obj22)
+
+// console.log(`-------------------------------------------------------`)
+
+// const myMap31 = new Map([
+//   ['tel', +78005553535],
+//   ['city', 'London'],
+// ])
+
+// myMap31.set(NaN, 'привет мир')
+// console.log(myMap31.get(NaN)) // допускается обращению к ключу "NaN", не смотря на то, что в стандартном коде NaN !== NaN
+
+// Урок 90 - структура данных "Set" (коллекция уникальных значений)
+
+'use strict'
+
+const set1 = new Set() // создали "Set" объект
+set1.add(true).add(false) // добавляем элемент
+set1.add([1, 2, 3, 4, 5])
+set1.add('Hello World')
+console.log(set1)
 
 console.log(`-------------------------------------------------------`)
 
-let map1 = new Map()
-map1.set(false, 'closed').set(true, { open: 1200 })
+const set2 = new Set([1, 2, 3, 4, 1, 4, 4])
+console.log(set2)
 
-console.log(map1)
-console.log(map1.get(true)) // получаем значению по обращению к ключу
-console.log(map1.get(false))
+console.log(set2.has(2)) // проверяем, содержится ли элемент в коллекции
 
 console.log(`-------------------------------------------------------`)
 
-let map2 = new Map()
-map2.set(20, [1, 2, 3]).set('city', 'London')
+const arr = [1, 2, 1, 2, 'red', 'blue', 'red']
 
-console.log(map2)
-console.log(map2.get(20))
-console.log(map2.has(20)) // проверка, существует ли искомый ключ или нет
-console.log(map2.has(123))
+const set3 = new Set(arr) // получили коллекцию из массива
+console.log(set3)
+console.log(set3.size) // размер коллекции
 
 console.log(`-------------------------------------------------------`)
 
-let map3 = new Map()
-map3.set('color1', 'red').set('backgroundColor', 'pink').set('isAdmin', true)
+const set4 = new Set([1, 2, 3])
+console.log(set4)
 
-console.log(map3)
-console.log(map3.size) // узнаем размер коллекции
-
-map3.delete('color1') // удаление элементов из коллекции
-console.log(map3)
-console.log(map3.size)
-
-console.log(`-------------------------------------------------------`)
-
-const map4 = new Map()
-map4.set('name', 'Costa').set('age', 29).set('car', 'Toyota')
-console.log(map4)
-
-for (let key of map4.keys()) {
-  // получаем с помощью цикла ТОЛЬКО ключи
-  console.log(key)
-}
-console.log(`---`)
-for (let key of map4.values()) {
-  // получаем с помощью цикла ТОЛЬКО значения
-  console.log(key)
-}
-console.log(`---`)
-for (let key of map4.entries()) {
-  // получаем с помощью цикла массив ключ-значение
-  console.log(key)
-}
-console.log(`---`)
-for (let [key, item] of map4.entries()) {
-  // используем деструктуризацию массива для вывода ключ-значений
-  console.log(key, item)
-}
-
-console.log(`-------------------------------------------------------`)
-
-const map5 = new Map()
-map5.set('name', 'Costa').set('age', 29).set('car', 'Toyota')
-console.log(map5)
-
-map5.clear() // полное очищение коллекции
-console.log(map5)
-
-console.log(`-------------------------------------------------------`)
-
-const obj1 = { name: 'john' }
-const obj2 = { name: 'Costa', age: 29 }
-
-const objMap = new Map()
-
-objMap.set(obj1, 'value1').set(obj2, 'value2')
-
-console.log(objMap.get(obj1))
-console.log(objMap.get(obj2))
-console.log(objMap)
-
-console.log(`-------------------------------------------------------`)
-
-const map6 = new Map([
-  // добавляем массив сразу при объявлении "Map"
-  ['red', 'красный'],
-  ['blue', 'синий'],
-])
-
-console.log(map6)
-console.log(map6.has('red'))
-console.log(map6.get('red'))
-console.log(map6.delete('red'))
-console.log(map6)
-
-console.log(`-------------------------------------------------------`)
-
-const myMap = new Map([
-  ['key1', 'value1'],
-  ['key2', 'value2'],
-  ['key3', 'value3'],
-])
-
-myMap.forEach((value, key) => {
-  console.log(key, value)
+set4.forEach(function (item) {
+  console.log(item)
 })
 
 console.log(`-------------------------------------------------------`)
 
-const arr10 = [1, 2, 3, 3, 4]
-const myMap1 = new Map([
-  ['key5', true],
-  [arr10, 'value 20'],
-])
+const set5 = new Set([1, 2, 3, false])
+const arraySet5 = Array.from(set5) // преобразовать коллекцию "Set" в массив
+console.log(arraySet5)
 
-console.log(myMap1)
-console.log(myMap1.get(arr10))
+const set5Spread = [...set5] // можно через спред-оператор
+console.log(set5Spread)
 
 console.log(`-------------------------------------------------------`)
 
-const map10 = new Map([
-  ['key1', 'value1'],
-  ['key2', 'value2'],
-])
+const arr1 = [1, 2, 1, 1, 1, 1, 1, 2, 2, 2, 3, 3, 3, 34, 5, 65, 'a', 'a', 'b']
 
-const mapToArr = Array.from(map10) // создали новый массив из пар ключа и значения (из массивоподобного или итерируемого объекта, или то, на чем сработает свойство .length)
-console.log(mapToArr)
-console.log(map10)
+const arr2 = new Set(arr1)
+arr2.clear() // "clear" удалаяет все элементы из коллекции
+console.log(arr2)
 
-console.log(`-------------------------------------------------------`)
-
-const str = 'hello'
-const str1 = Array.from(str)
-console.log(str1)
-
-const str2 = [...str]
-console.log(str2)
-
-console.log(`-------------------------------------------------------`)
-
-const map11 = new Map([
-  ['key1', 'value1'],
-  ['key2', 'value2'],
-])
-
-const arr = []
-
-map11.forEach((item, index) => {
-  // ручное преобразование объекта "Map" в массив-массивов
-  arr.push([item, index])
-})
-
-console.log(arr)
-
-console.log(`-------------------------------------------------------`)
-
-const map12 = new Map([
-  ['key1', 'value1'],
-  ['key2', 'value2'],
-])
-
-const mapToObject = Object.fromEntries(map12) // создает из массива-массивов объект
-console.log(mapToObject)
-
-console.log(`-------------------------------------------------------`)
-
-const arr2 = [
-  [1, 2],
-  [3, 4],
-]
-const arr3 = Object.fromEntries(arr2)
+const arr3 = [...arr2]
 console.log(arr3)
 
 console.log(`-------------------------------------------------------`)
 
-const myMap20 = new Map([
-  ['a', 10],
-  ['b', false],
-])
+let setA = new Set([1, 2, 3, 4])
+let setB = new Set([4, 3, 2, 1, 0])
 
-const obj5 = Object.fromEntries(myMap20)
-console.log(obj5)
+let n1 = new Set([...setA, ...setB]) // получаем общую коллекцию уникальных значений из двух массивов
+console.log(n1)
 
 console.log(`-------------------------------------------------------`)
 
-const myMap30 = new Map([
-  ['tel', +78005553535],
-  ['city', 'London'],
-])
+let setC = new Set([1, 2, 3, 4])
+let setD = new Set([5, 1, 3, 4])
 
-function mapToMyObject(map) {
-  let obj = {}
+let test = new Set([...setC].filter((a) => setD.has(a))) // находим пересечения из двух коллекций и добавляем их в третью
 
-  for (let [key, value] of map) {
-    obj[key] = value
-  }
-  return obj
-}
-
-let obj22 = mapToMyObject(myMap30)
-
-console.log(obj22)
+console.log(test)
 
 console.log(`-------------------------------------------------------`)
 
-const myMap31 = new Map([
-  ['tel', +78005553535],
-  ['city', 'London'],
-])
+let setC1 = new Set([1, 2, 3, 4, 8])
+let setD1 = new Set([5, 1, 3, 4])
 
-myMap31.set(NaN, 'привет мир')
-console.log(myMap31.get(NaN)) // допускается обращению к ключу "NaN", не смотря на то, что в стандартном коде NaN !== NaN
+let diff = new Set([...setC1].filter((x) => !setD1.has(x))) // находим только те элементы, которые не пересекаются в двух коллекциях, и добавляем эти исключения в третью
+console.log(diff)
