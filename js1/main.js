@@ -2137,81 +2137,208 @@
 // myMap31.set(NaN, 'привет мир')
 // console.log(myMap31.get(NaN)) // допускается обращению к ключу "NaN", не смотря на то, что в стандартном коде NaN !== NaN
 
-// Урок 90 - структура данных "Set" (коллекция уникальных значений)
+// // Урок 90 - структура данных "Set" (коллекция уникальных значений)
 
-'use strict'
+// 'use strict'
 
-const set1 = new Set() // создали "Set" объект
-set1.add(true).add(false) // добавляем элемент
-set1.add([1, 2, 3, 4, 5])
-set1.add('Hello World')
-console.log(set1)
+// const set1 = new Set() // создали "Set" объект
+// set1.add(true).add(false) // добавляем элемент
+// set1.add([1, 2, 3, 4, 5])
+// set1.add('Hello World')
+// console.log(set1)
+
+// console.log(`-------------------------------------------------------`)
+
+// const set2 = new Set([1, 2, 3, 4, 1, 4, 4])
+// console.log(set2)
+
+// console.log(set2.has(2)) // проверяем, содержится ли элемент в коллекции
+
+// console.log(`-------------------------------------------------------`)
+
+// const arr = [1, 2, 1, 2, 'red', 'blue', 'red']
+
+// const set3 = new Set(arr) // получили коллекцию из массива
+// console.log(set3)
+// console.log(set3.size) // размер коллекции
+
+// console.log(`-------------------------------------------------------`)
+
+// const set4 = new Set([1, 2, 3])
+// console.log(set4)
+
+// set4.forEach(function (item) {
+//   console.log(item)
+// })
+
+// console.log(`-------------------------------------------------------`)
+
+// const set5 = new Set([1, 2, 3, false])
+// const arraySet5 = Array.from(set5) // преобразовать коллекцию "Set" в массив
+// console.log(arraySet5)
+
+// const set5Spread = [...set5] // можно через спред-оператор
+// console.log(set5Spread)
+
+// console.log(`-------------------------------------------------------`)
+
+// const arr1 = [1, 2, 1, 1, 1, 1, 1, 2, 2, 2, 3, 3, 3, 34, 5, 65, 'a', 'a', 'b']
+
+// const arr2 = new Set(arr1)
+// arr2.clear() // "clear" удалаяет все элементы из коллекции
+// console.log(arr2)
+
+// const arr3 = [...arr2]
+// console.log(arr3)
+
+// console.log(`-------------------------------------------------------`)
+
+// let setA = new Set([1, 2, 3, 4])
+// let setB = new Set([4, 3, 2, 1, 0])
+
+// let n1 = new Set([...setA, ...setB]) // получаем общую коллекцию уникальных значений из двух массивов
+// console.log(n1)
+
+// console.log(`-------------------------------------------------------`)
+
+// let setC = new Set([1, 2, 3, 4])
+// let setD = new Set([5, 1, 3, 4])
+
+// let test = new Set([...setC].filter((a) => setD.has(a))) // находим пересечения из двух коллекций и добавляем их в третью
+
+// console.log(test)
+
+// console.log(`-------------------------------------------------------`)
+
+// let setC1 = new Set([1, 2, 3, 4, 8])
+// let setD1 = new Set([5, 1, 3, 4])
+
+// let diff = new Set([...setC1].filter((x) => !setD1.has(x))) // находим только те элементы, которые не пересекаются в двух коллекциях, и добавляем эти исключения в третью
+// console.log(diff)
+
+// // Урок 91 - коллекция пар "ключ-значение" - WeakMap (ключ - только объекты; значения - любые)
+// 'use strict'
+
+// // let obj = { name: 'Costa' }
+// // obj = null
+
+// // let obj2 = {}
+// // let obj3 = {}
+// // obj2.car = 'bmw'
+
+// // obj3 = obj2
+
+// // console.log(obj2)
+// // console.log(obj3)
+
+// // console.log(`-------------------------------------------------------`)
+
+// const weak1 = new WeakMap()
+// console.log(weak1)
+
+// console.log(`-------------------------------------------------------`)
+
+// const weak2 = new WeakMap()
+// const obj = {}
+// weak2.set(obj, 'Hello')
+// console.log(weak2)
+// console.log(weak2.get(obj))
+// console.log(weak2.has(obj))
+// console.log(weak2.delete(obj))
+// console.log(weak2)
+
+// console.log(`-------------------------------------------------------`)
+
+// const persons = new WeakMap()
+
+// const city = {}
+// const myName = {}
+
+// persons.set(city, 'London').set(myName, 'Costa')
+
+// console.log(persons.get(city))
+// console.log(persons.get(myName))
+
+// console.log(persons.has(city))
+
+// persons.delete(myName)
+// console.log(persons)
+
+// // Урок 92 - коллекция - WeakSet (хранит только уникальные объекты)
+// // 'use strict'
+
+// // const myWeakSet = new WeakSet()
+
+// // const obj1 = {}
+// // const obj2 = {}
+// // const obj3 = {}
+
+// // myWeakSet.add(obj1)
+// // myWeakSet.add(obj2)
+
+// // console.log(myWeakSet.has(obj2))
+
+// // myWeakSet.delete(obj1)
+
+// // console.log(myWeakSet)
+
+// // console.log(`-------------------------------------------------------`)
+
+// 'use strict'
+
+// const users = new WeakSet()
+
+// const obj1 = { name: 'Costa' }
+// const obj2 = { name: 'Bob' }
+
+// users.add(obj1)
+// users.add(obj2)
+
+// console.log(users)
+// console.log(users.has(obj1))
+// console.log(users.has(obj2))
+
+// users.delete(obj1)
+
+// console.log(users.has(obj1))
+// console.log(users.has(obj2))
+
+// Урок 93 - Прототипное наследование
+
+// const a = { age: 25 }
+// console.log(a)
+// console.log(a.age)
+
+const a = {
+  age: 22,
+  fn1: function () {
+    console.log('Hello')
+  },
+}
+
+const a1 = Object.create(a) // принимает 2 параметра: сам объект и свойства
+
+a1.fn1()
+console.log(a1)
 
 console.log(`-------------------------------------------------------`)
 
-const set2 = new Set([1, 2, 3, 4, 1, 4, 4])
-console.log(set2)
+const obj1 = {
+  name: 'Costa',
+  myMethod() {
+    console.log('привет мир!')
+  },
+}
 
-console.log(set2.has(2)) // проверяем, содержится ли элемент в коллекции
+const obj2 = Object.create(obj1)
 
-console.log(`-------------------------------------------------------`)
+obj2.myMethod()
+obj2.city = 'London'
+console.log(obj2)
 
-const arr = [1, 2, 1, 2, 'red', 'blue', 'red']
+console.log(obj2.city)
+console.log(obj1.city)
 
-const set3 = new Set(arr) // получили коллекцию из массива
-console.log(set3)
-console.log(set3.size) // размер коллекции
+obj1.bol = true
 
-console.log(`-------------------------------------------------------`)
-
-const set4 = new Set([1, 2, 3])
-console.log(set4)
-
-set4.forEach(function (item) {
-  console.log(item)
-})
-
-console.log(`-------------------------------------------------------`)
-
-const set5 = new Set([1, 2, 3, false])
-const arraySet5 = Array.from(set5) // преобразовать коллекцию "Set" в массив
-console.log(arraySet5)
-
-const set5Spread = [...set5] // можно через спред-оператор
-console.log(set5Spread)
-
-console.log(`-------------------------------------------------------`)
-
-const arr1 = [1, 2, 1, 1, 1, 1, 1, 2, 2, 2, 3, 3, 3, 34, 5, 65, 'a', 'a', 'b']
-
-const arr2 = new Set(arr1)
-arr2.clear() // "clear" удалаяет все элементы из коллекции
-console.log(arr2)
-
-const arr3 = [...arr2]
-console.log(arr3)
-
-console.log(`-------------------------------------------------------`)
-
-let setA = new Set([1, 2, 3, 4])
-let setB = new Set([4, 3, 2, 1, 0])
-
-let n1 = new Set([...setA, ...setB]) // получаем общую коллекцию уникальных значений из двух массивов
-console.log(n1)
-
-console.log(`-------------------------------------------------------`)
-
-let setC = new Set([1, 2, 3, 4])
-let setD = new Set([5, 1, 3, 4])
-
-let test = new Set([...setC].filter((a) => setD.has(a))) // находим пересечения из двух коллекций и добавляем их в третью
-
-console.log(test)
-
-console.log(`-------------------------------------------------------`)
-
-let setC1 = new Set([1, 2, 3, 4, 8])
-let setD1 = new Set([5, 1, 3, 4])
-
-let diff = new Set([...setC1].filter((x) => !setD1.has(x))) // находим только те элементы, которые не пересекаются в двух коллекциях, и добавляем эти исключения в третью
-console.log(diff)
+console.log(obj2.bol)
