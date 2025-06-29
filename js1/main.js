@@ -2303,42 +2303,186 @@
 // console.log(users.has(obj1))
 // console.log(users.has(obj2))
 
-// Урок 93 - Прототипное наследование
+// // Урок 93 - Прототипное наследование
 
-// const a = { age: 25 }
-// console.log(a)
-// console.log(a.age)
+// // const a = { age: 25 }
+// // console.log(a)
+// // console.log(a.age)
 
-const a = {
-  age: 22,
-  fn1: function () {
-    console.log('Hello')
-  },
+// const a = {
+//   age: 22,
+//   fn1: function () {
+//     console.log('Hello')
+//   },
+// }
+
+// const a1 = Object.create(a) // принимает 2 параметра: сам объект и свойства
+
+// a1.fn1()
+// console.log(a1)
+
+// console.log(`-------------------------------------------------------`)
+
+// const obj1 = {
+//   name: 'Costa',
+//   myMethod() {
+//     console.log('привет мир!')
+//   },
+// }
+
+// const obj2 = Object.create(obj1)
+
+// obj2.myMethod()
+// obj2.city = 'London'
+// console.log(obj2)
+
+// console.log(obj2.city)
+// console.log(obj1.city)
+
+// obj1.bol = true
+
+// console.log(obj2.bol)
+
+// // Урок 94 - свойство "_proto_" (скрытое свойство, которое содержит ссылку на исходный объект)
+
+// // const a = {}
+// // console.log(a.__proto__) // лучше не использовать, а приенять следующие методы:
+
+// // console.log(`-------------------------------------------------------`)
+
+// // const obj = {}
+// // const proto = Object.getPrototypeOf(obj) // getPrototypeOf - возвращает прототип указанного объекта
+// // console.log(proto)
+
+// // proto.city = 'London'
+// // proto.myFn = function () {
+// //   console.log('Hello world')
+// // }
+
+// // console.log(proto)
+// // console.log(obj.city)
+// // obj.myFn()
+// // console.log(obj)
+
+// // console.log(`-------------------------------------------------------`)
+
+// const obj = {}
+
+// const proto = {
+//   greet: function () {
+//     console.log('Hello')
+//   },
+// }
+// Object.setPrototypeOf(obj, proto) // setPrototypeOf - принимает 2 параметра: 1) сам объект, для которого требуется установить новый прототип; 2) новый прототип, который нужно установить
+
+// proto.city = 'London'
+
+// console.log(obj.city)
+// console.log(obj)
+
+// obj.age = 25
+// console.log(obj)
+// console.log(proto.age) // У объекта "proto" нет свойства "age"
+
+// console.log(`-------------------------------------------------------`)
+
+// const arr = [1, 2, 3]
+// const arr2 = arr.map((el) => el + 20) // например "map" - метод из прототипа
+
+// console.log(arr2)
+
+// // Урок 95 - конструкции
+
+// const obj = { age: 23 }
+// console.log(obj)
+
+// const arr = [1, 2, 3]
+// console.log(arr)
+
+// // Коструктор "Object" - может быть использован для создания новых объектов
+
+// const obj2 = new Object({ car: true })
+// obj2.name = 'Costa'
+// obj2.age = 15
+// console.log(obj2)
+
+// const arr1 = new Array(1, 2, 3, 4, 5)
+// for (let i = 6; i < 201; i++) {
+//   arr1.push(i)
+// }
+// console.log(arr1)
+
+// const str = new String('dasdsa')
+
+// Урок 96 - функции низшего/высшего порядка
+'use strict'
+// // функции низшего порядка - функции, которые не принимают никакие другие функции в качестве аргументов и не возвращают функции в качестве результата; просто выполняют какую-либо работу
+
+// const a1 = (a, b) => a + b
+// console.log(a1(20, 30))
+
+// const strHandler = (names) => `привет ${names}`
+// console.log(strHandler('Costa'))
+
+// console.log(`-------------------------------------------------------`)
+
+// // функции высшего порядка - функции, которые могут принимать другие функции в качестве аргументов, и/или возвращать функции в качестве результата
+
+// function fn1(a, b) {
+//   return b(a)
+// }
+
+// function fn2(c) {
+//   return c * 5
+// }
+
+// console.log(fn1(10, fn2))
+
+// console.log(`-------------------------------------------------------`)
+
+// const fn3 = (a, b) => b(a)
+// const fn4 = (c) => c * 4
+
+// console.log(fn3(4, fn4))
+
+// console.log(`-------------------------------------------------------`)
+
+// function m1(f) {
+//   return function (a) {
+//     return a * f
+//   }
+// }
+
+// const m2 = (f) => (a) => a * f
+
+// const t1 = m1(3)
+// const t2 = m2(10)
+
+// console.log(t1(6))
+// console.log(t2(5))
+
+// console.log(`-------------------------------------------------------`)
+
+// let numbers = [1, 2, 3, 4, 5]
+
+// let d = numbers.map((num) => num * 2)
+// console.log(d)
+
+// let event1 = numbers.filter((num) => num % 2 === 0)
+// console.log(event1)
+
+// let sum = numbers.reduce((acc, item) => acc + item, 0)
+// console.log(sum)
+
+// console.log(`-------------------------------------------------------`)
+
+const numbers = [1, 3, 7, 12, 14, 22, 58]
+
+function filterNum(arr, num) {
+  return arr.filter((number) => number > num)
 }
 
-const a1 = Object.create(a) // принимает 2 параметра: сам объект и свойства
+const num = 10
+const result = filterNum(numbers, num)
 
-a1.fn1()
-console.log(a1)
-
-console.log(`-------------------------------------------------------`)
-
-const obj1 = {
-  name: 'Costa',
-  myMethod() {
-    console.log('привет мир!')
-  },
-}
-
-const obj2 = Object.create(obj1)
-
-obj2.myMethod()
-obj2.city = 'London'
-console.log(obj2)
-
-console.log(obj2.city)
-console.log(obj1.city)
-
-obj1.bol = true
-
-console.log(obj2.bol)
+console.log(result)
