@@ -2414,75 +2414,254 @@
 
 // const str = new String('dasdsa')
 
-// Урок 96 - функции низшего/высшего порядка
+// // Урок 96 - функции низшего/высшего порядка
+// 'use strict'
+// // // функции низшего порядка - функции, которые не принимают никакие другие функции в качестве аргументов и не возвращают функции в качестве результата; просто выполняют какую-либо работу
+
+// // const a1 = (a, b) => a + b
+// // console.log(a1(20, 30))
+
+// // const strHandler = (names) => `привет ${names}`
+// // console.log(strHandler('Costa'))
+
+// // console.log(`-------------------------------------------------------`)
+
+// // // функции высшего порядка - функции, которые могут принимать другие функции в качестве аргументов, и/или возвращать функции в качестве результата
+
+// // function fn1(a, b) {
+// //   return b(a)
+// // }
+
+// // function fn2(c) {
+// //   return c * 5
+// // }
+
+// // console.log(fn1(10, fn2))
+
+// // console.log(`-------------------------------------------------------`)
+
+// // const fn3 = (a, b) => b(a)
+// // const fn4 = (c) => c * 4
+
+// // console.log(fn3(4, fn4))
+
+// // console.log(`-------------------------------------------------------`)
+
+// // function m1(f) {
+// //   return function (a) {
+// //     return a * f
+// //   }
+// // }
+
+// // const m2 = (f) => (a) => a * f
+
+// // const t1 = m1(3)
+// // const t2 = m2(10)
+
+// // console.log(t1(6))
+// // console.log(t2(5))
+
+// // console.log(`-------------------------------------------------------`)
+
+// // let numbers = [1, 2, 3, 4, 5]
+
+// // let d = numbers.map((num) => num * 2)
+// // console.log(d)
+
+// // let event1 = numbers.filter((num) => num % 2 === 0)
+// // console.log(event1)
+
+// // let sum = numbers.reduce((acc, item) => acc + item, 0)
+// // console.log(sum)
+
+// // console.log(`-------------------------------------------------------`)
+
+// const numbers = [1, 3, 7, 12, 14, 22, 58]
+
+// function filterNum(arr, num) {
+//   return arr.filter((number) => number > num)
+// }
+
+// const num = 10
+// const result = filterNum(numbers, num)
+
+// console.log(result)
+
+// // Урок 97 - call / apply / bind
+// 'use strict'
+// // const obj1 = {
+// //   name: 'Василий',
+// //   mythod(lastName) {
+// //     console.log(`привет ${this.name} ${lastName}`)
+// //   },
+// // }
+
+// // const obj2 = {
+// //   name: 'Екатерина',
+// // }
+
+// // const a1 = obj1.mythod
+
+// // a1.call(obj1, 'Гудомаров')
+// // a1.call(obj2, 'Маркова')
+
+// // // call - метод, позволяющий вызывать функцию с указанием конкретного объекта
+// // // особенности метода "call" - изменение контекста функции
+
+// // console.log(`-------------------------------------------------------`)
+
+// // // apply - основа как у метода "call", но принимает аргумент в виде массива
+
+// // const myName = ['Канцев']
+// // a1.apply(obj1, myName)
+// // a1.apply(obj2, ['Канцева'])
+
+// // console.log(`-------------------------------------------------------`)
+
+// // // bind - создает новую функцию, при вызове имеет контекст "this"
+
+// // const a2 = obj1.mythod.bind(obj1, 'Канцев')
+// // const a3 = obj1.mythod.bind(obj2, 'Канцева')
+// // const a4 = obj1.mythod.bind(obj2)
+
+// // a2()
+// // a3()
+// // a4('Smith')
+
+// // console.log(`-------------------------------------------------------`)
+
+// const obj = {
+//   language: 'C#',
+//   arr: [],
+//   myMethod(par1, par2) {
+//     console.log(
+//       `я программист ${this.language} меня зовут ${par1} мне ${par2} года`
+//     )
+//     this.arr.push({
+//       name: par1,
+//       lang: `${this.language}`,
+//     })
+//   },
+// }
+
+// const obj2 = {
+//   language: 'JavaScript',
+//   arr: [],
+// }
+
+// const objCopy = obj.myMethod
+
+// objCopy.call(obj, 'Costa', 24)
+// objCopy.call(obj2, 'Bob', 34)
+
+// console.log(obj.arr)
+// console.log(obj2.arr)
+
+// const arr1 = ['Costa', 22]
+// const arr2 = ['Alice', 42]
+
+// objCopy.apply(obj, arr1)
+// objCopy.apply(obj2, arr2)
+
+// objCopy.call(obj2, ...arr1)
+
+// const a3 = obj.myMethod.bind(obj)
+// const a4 = obj.myMethod.bind(obj2)
+
+// a3('Василий', 34)
+// a4('Василий', 34)
+
+// // Урок 98 - Даты
+// 'use strict'
+
+// // const date = new Date()
+// // console.log(date)
+
+// // const date1 = new Date(2025, 0, 18)
+// // console.log(date1)
+
+// // console.log(`-------------------------------------------------------`)
+
+// const date2 = new Date()
+
+// const year = date2.getFullYear()
+// console.log(`Year ${year}`)
+
+// const month = date2.getMonth()
+// console.log(`Month ${month}`)
+
+// const hours = date2.getHours()
+// const minutes = date2.getMinutes()
+// console.log(`Hours ${hours}: minutes ${minutes}`)
+
+// const seconds = date2.getSeconds()
+// console.log(`${hours}:${minutes}:${seconds}`)
+
+// const milliseconds = date2.getMilliseconds()
+// console.log(`${hours}:${minutes}:${seconds}:${milliseconds}`)
+
+// const dayOfWeek = date2.getDay()
+// console.log(`DayNumber ${dayOfWeek}`)
+
+// console.log(`-------------------------------------------------------`)
+
+// const date3 = new Date()
+
+// date3.setFullYear(2026)
+// date3.setMonth(15)
+// date3.setHours(18)
+// date3.setMinutes(59)
+// date3.setSeconds(59)
+// date3.setMilliseconds(800)
+
+// console.log(date3)
+
+// // Урок 99 - Даты (продолжение)
+// 'use strict'
+
+// // const date = new Date()
+
+// // date.setDate(date.getDate() + 10)
+// // date.setMonth(date.getMonth() - 2)
+// // console.log(date)
+
+// // console.log(`-------------------------------------------------------`)
+
+// const date = new Date()
+// console.log(date)
+
+// const date1 = date.toISOString().slice(0, 10)
+// console.log(date1)
+
+// const date2 = date1.toString()
+// console.log(date2)
+
+// console.log(date)
+
+// Урок 100 - Даты (продолжение)
 'use strict'
-// // функции низшего порядка - функции, которые не принимают никакие другие функции в качестве аргументов и не возвращают функции в качестве результата; просто выполняют какую-либо работу
 
-// const a1 = (a, b) => a + b
-// console.log(a1(20, 30))
+const date = new Date()
 
-// const strHandler = (names) => `привет ${names}`
-// console.log(strHandler('Costa'))
+// console.log(date.toLocaleDateString()) // локализированная запись (ДД.ММ.ГГГГ)
 
-// console.log(`-------------------------------------------------------`)
-
-// // функции высшего порядка - функции, которые могут принимать другие функции в качестве аргументов, и/или возвращать функции в качестве результата
-
-// function fn1(a, b) {
-//   return b(a)
-// }
-
-// function fn2(c) {
-//   return c * 5
-// }
-
-// console.log(fn1(10, fn2))
+// console.log(date.toLocaleDateString('ru-RU'))
+// console.log(date.toLocaleDateString('en-US'))
+// console.log(date.toLocaleDateString('zh-CN'))
 
 // console.log(`-------------------------------------------------------`)
 
-// const fn3 = (a, b) => b(a)
-// const fn4 = (c) => c * 4
-
-// console.log(fn3(4, fn4))
-
-// console.log(`-------------------------------------------------------`)
-
-// function m1(f) {
-//   return function (a) {
-//     return a * f
-//   }
-// }
-
-// const m2 = (f) => (a) => a * f
-
-// const t1 = m1(3)
-// const t2 = m2(10)
-
-// console.log(t1(6))
-// console.log(t2(5))
-
-// console.log(`-------------------------------------------------------`)
-
-// let numbers = [1, 2, 3, 4, 5]
-
-// let d = numbers.map((num) => num * 2)
-// console.log(d)
-
-// let event1 = numbers.filter((num) => num % 2 === 0)
-// console.log(event1)
-
-// let sum = numbers.reduce((acc, item) => acc + item, 0)
-// console.log(sum)
-
-// console.log(`-------------------------------------------------------`)
-
-const numbers = [1, 3, 7, 12, 14, 22, 58]
-
-function filterNum(arr, num) {
-  return arr.filter((number) => number > num)
-}
-
-const num = 10
-const result = filterNum(numbers, num)
-
-console.log(result)
+console.log(
+  date.toLocaleDateString('ru-RU', {
+    weekday: 'long',
+    //    weekday: 'narrow',
+    //    weekday: 'short',
+    year: 'numeric',
+    month: 'long',
+    day: '2-digit',
+    hour: '2-digit',
+    minute: '2-digit',
+    second: '2-digit',
+    timeZoneName: 'short',
+  })
+)
