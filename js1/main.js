@@ -2638,30 +2638,142 @@
 
 // console.log(date)
 
-// Урок 100 - Даты (продолжение)
-'use strict'
+// // Урок 100 - Даты (продолжение)
+// 'use strict'
 
-const date = new Date()
+// const date = new Date()
 
-// console.log(date.toLocaleDateString()) // локализированная запись (ДД.ММ.ГГГГ)
+// // console.log(date.toLocaleDateString()) // локализированная запись (ДД.ММ.ГГГГ)
 
-// console.log(date.toLocaleDateString('ru-RU'))
-// console.log(date.toLocaleDateString('en-US'))
-// console.log(date.toLocaleDateString('zh-CN'))
+// // console.log(date.toLocaleDateString('ru-RU'))
+// // console.log(date.toLocaleDateString('en-US'))
+// // console.log(date.toLocaleDateString('zh-CN'))
+
+// // console.log(`-------------------------------------------------------`)
+
+// console.log(
+//   date.toLocaleDateString('ru-RU', {
+//     weekday: 'long',
+//     //    weekday: 'narrow',
+//     //    weekday: 'short',
+//     year: 'numeric',
+//     month: 'long',
+//     day: '2-digit',
+//     hour: '2-digit',
+//     minute: '2-digit',
+//     second: '2-digit',
+//     timeZoneName: 'short',
+//   })
+// )
+
+// // Урок 101 - Даты (продолжение)
+// 'use strict'
+
+// const date = new Date()
+
+// console.log(date.toLocaleDateString())
+
+// // toLocaleString - форматирует как дату, так и время
+// console.log(
+//   date.toLocaleString('ru-RU', {
+//     weekday: 'long',
+//     year: 'numeric',
+//     day: 'numeric',
+//     hour: '2-digit',
+//     minute: '2-digit',
+//     second: '2-digit',
+//   })
+// )
+
+// // Урок 102 - setTimeout
+
+// // function fn1() {
+// //   console.log('1 Hello world')
+// // }
+
+// // setTimeout(fn1, 1000) // передали: 1) коллбэк функцию; 2) время задержки для выполнения функции (1с); 3) аргументы для коллбэк функции;
+
+// // setTimeout(function () {
+// //   console.log('2 привет мир')
+// // }, 2000)
+
+// // function fn2(name) {
+// //   console.log(`3 Привет ${name}`)
+// // }
+
+// // const myName = 'Alice'
+
+// // setTimeout(fn2, 3000, myName)
+
+// // console.log(`-------------------------------------------------------`)
+
+// // function sayHi() {
+// //   console.log('JavaScript')
+// // }
+
+// // setTimeout(sayHi, 2000)
+// // setTimeout(sayHi, 3000)
+
+// // const time1 = setTimeout(sayHi, 4000)
+// // clearTimeout(time1)
+
+// // console.log(`-------------------------------------------------------`)
+
+// function s1() {
+//   console.log('1')
+// }
+// function s2() {
+//   console.log('2')
+// }
+// function s3() {
+//   console.log('3')
+// }
+
+// setTimeout(() => console.log('4'), 4000)
+
+// function s5() {
+//   console.log('5')
+// }
+
+// const s1Function = setTimeout(s1, 1000)
+// const s2Function = setTimeout(s2, 2000)
+// const s3Function = setTimeout(s3, 3000)
+// const s5Function = setTimeout(s5, 5000)
+
+// clearTimeout(s3Function)
+
+// Урок 103 - padStart
+
+// function fn1(par) {
+//   const n = document.querySelector('.d1')
+//   n.textContent = par
+
+//   setTimeout(function () {
+//     n.remove()
+//   }, 3000)
+// }
+
+// fn1('Привет мир')
 
 // console.log(`-------------------------------------------------------`)
 
-console.log(
-  date.toLocaleDateString('ru-RU', {
-    weekday: 'long',
-    //    weekday: 'narrow',
-    //    weekday: 'short',
-    year: 'numeric',
-    month: 'long',
-    day: '2-digit',
-    hour: '2-digit',
-    minute: '2-digit',
-    second: '2-digit',
-    timeZoneName: 'short',
-  })
-)
+function fn4() {
+  const time = new Date()
+  const hours = time.getHours().toString().padStart(2, '0')
+  const minutes = time.getMinutes().toString()
+  const second = time.getSeconds().toString()
+
+  const d1 = document.querySelector('.d1')
+  d1.textContent = `${hours}: ${minutes}:${second}`
+}
+
+fn4()
+
+const num = '9'
+
+const numUpdate = num.padStart(3, '0') // padStart - принимает 2 аргумента: 1) кол-во элементов; 2) то, чем заполнять элементы при отсутствии символов;
+console.log(numUpdate)
+
+const card = '3188'
+const cardUpdate = card.padStart(16, '*')
+console.log(cardUpdate)
