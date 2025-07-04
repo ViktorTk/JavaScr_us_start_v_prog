@@ -2742,38 +2742,67 @@
 
 // clearTimeout(s3Function)
 
-// Урок 103 - padStart
+// // Урок 103 - padStart
 
-// function fn1(par) {
-//   const n = document.querySelector('.d1')
-//   n.textContent = par
+// // function fn1(par) {
+// //   const n = document.querySelector('.d1')
+// //   n.textContent = par
 
-//   setTimeout(function () {
-//     n.remove()
-//   }, 3000)
+// //   setTimeout(function () {
+// //     n.remove()
+// //   }, 3000)
+// // }
+
+// // fn1('Привет мир')
+
+// // console.log(`-------------------------------------------------------`)
+
+// function fn4() {
+//   const time = new Date()
+//   const hours = time.getHours().toString().padStart(2, '0')
+//   const minutes = time.getMinutes().toString()
+//   const second = time.getSeconds().toString()
+
+//   const d1 = document.querySelector('.d1')
+//   d1.textContent = `${hours}: ${minutes}:${second}`
 // }
 
-// fn1('Привет мир')
+// fn4()
+
+// const num = '9'
+
+// const numUpdate = num.padStart(3, '0') // padStart - принимает 2 аргумента: 1) кол-во элементов; 2) то, чем заполнять элементы при отсутствии символов;
+// console.log(numUpdate)
+
+// const card = '3188'
+// const cardUpdate = card.padStart(16, '*')
+// console.log(cardUpdate)
+
+// Урок 104 - setInterval - повторяющийся вызов функции
+
+// const lang = 'JavaScript'
+
+// const fn1 = () => {
+//   console.log(`Hello ${lang}`)
+// }
+
+// setInterval(fn1, 1000)
+
+// setInterval(() => console.log(`Прошла одна секунда`), 2000)
 
 // console.log(`-------------------------------------------------------`)
 
-function fn4() {
-  const time = new Date()
-  const hours = time.getHours().toString().padStart(2, '0')
-  const minutes = time.getMinutes().toString()
-  const second = time.getSeconds().toString()
+const fn1 = (name) => console.log(`Привет ${name}`)
+const userName = 'John'
+setInterval(fn1, 1500, userName)
 
-  const d1 = document.querySelector('.d1')
-  d1.textContent = `${hours}: ${minutes}:${second}`
+function printMessage() {
+  console.log('Hello world')
 }
 
-fn4()
+const p = setInterval(printMessage, 1000)
 
-const num = '9'
-
-const numUpdate = num.padStart(3, '0') // padStart - принимает 2 аргумента: 1) кол-во элементов; 2) то, чем заполнять элементы при отсутствии символов;
-console.log(numUpdate)
-
-const card = '3188'
-const cardUpdate = card.padStart(16, '*')
-console.log(cardUpdate)
+setTimeout(() => {
+  clearInterval(p)
+  console.log('Прошло 6 секунд')
+}, 6000)
