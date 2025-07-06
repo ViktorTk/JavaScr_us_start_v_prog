@@ -2778,31 +2778,256 @@
 // const cardUpdate = card.padStart(16, '*')
 // console.log(cardUpdate)
 
-// Урок 104 - setInterval - повторяющийся вызов функции
+// // Урок 104 - setInterval - повторяющийся вызов функции
 
-// const lang = 'JavaScript'
+// // const lang = 'JavaScript'
 
-// const fn1 = () => {
-//   console.log(`Hello ${lang}`)
+// // const fn1 = () => {
+// //   console.log(`Hello ${lang}`)
+// // }
+
+// // setInterval(fn1, 1000)
+
+// // setInterval(() => console.log(`Прошла одна секунда`), 2000)
+
+// // console.log(`-------------------------------------------------------`)
+
+// const fn1 = (name) => console.log(`Привет ${name}`)
+// const userName = 'John'
+// setInterval(fn1, 1500, userName)
+
+// function printMessage() {
+//   console.log('Hello world')
 // }
 
-// setInterval(fn1, 1000)
+// const p = setInterval(printMessage, 1000)
 
-// setInterval(() => console.log(`Прошла одна секунда`), 2000)
+// setTimeout(() => {
+//   clearInterval(p)
+//   console.log('Прошло 6 секунд')
+// }, 6000)
+
+// // Урок 105 - практика
+
+// function b1(el) {
+//   let bol = true
+
+//   function t1() {
+//     bol = !bol
+//     el.style.opacity = bol ? 1 : 0
+//     setTimeout(t1, 500)
+//   }
+//   t1()
+// }
+
+// const cursorEl = document.querySelector('h1')
+
+// b1(cursorEl)
+
+// // Урок 106 - практика
+
+// function b1(el) {
+//   let bol = true
+
+//   function t1() {
+//     bol = !bol
+//     el.style.opacity = bol ? 1 : 0
+//     setTimeout(t1, 500)
+//   }
+//   t1()
+// }
+
+// const cursorEl = document.querySelector('h1')
+
+// b1(cursorEl)
+
+// function randomColor() {
+//   const letters = '0123456789ABCDEF'
+//   let color = '#'
+//   for (let i = 0; i < 6; i++) {
+//     color += letters[Math.floor(Math.random() * 16)]
+//   }
+//   return color
+// }
+
+// function color2() {
+//   const colorBody = document.querySelector('body')
+//   colorBody.style.backgroundColor = randomColor()
+// }
+
+// setInterval(color2, 500)
+
+// // Урок 107 - IntL (интернационализация)
+// 'use strict'
+
+// const number = 123456.78
+
+// const ru = new Intl.NumberFormat('ru-RU').format(number)
+// const usa = new Intl.NumberFormat('en-US').format(number)
+// const germany = new Intl.NumberFormat('de-DE').format(number)
+// const austtria = new Intl.NumberFormat('de-AT').format(number)
+
+// console.log(`Russia ${ru}`)
+// console.log(`USA ${usa}`)
+// console.log(`Germany ${germany}`)
+// console.log(`Austria ${austtria}`)
+
+// const locales = [
+//   'en-US', // Америка
+//   'de-DE', // Германия
+//   'ru-RU', // Россия
+//   'kk-KZ', // Казахстан
+//   'zh-CN', // Китай
+//   'ar', // Арабские страны
+//   'hi-IN', // Индия
+//   'fr-FR', // Франция
+// ]
+
+// // Урок 108 - продолжение
+// 'use strict'
+
+// const locales = [
+//   'en-US', // Америка
+//   'de-DE', // Германия
+//   'ru-RU', // Россия
+//   'kk-KZ', // Казахстан
+//   'zh-CN', // Китай
+//   'ar', // Арабские страны
+//   'hi-IN', // Индия
+//   'fr-FR', // Франция
+// ]
+
+// const number1 = 1234567.89
+
+// const format1 = locales.map((el) => new Intl.NumberFormat(el).format(number1))
+
+// console.log(format1.join('\n'))
 
 // console.log(`-------------------------------------------------------`)
 
-const fn1 = (name) => console.log(`Привет ${name}`)
-const userName = 'John'
-setInterval(fn1, 1500, userName)
+// const number2 = 0.12345
 
-function printMessage() {
-  console.log('Hello world')
-}
+// const format2 = locales.map((item) =>
+//   new Intl.NumberFormat(item, {
+//     style: 'percent',
+//     minimumFractionDigits: '2',
+//   }).format(number2)
+// )
 
-const p = setInterval(printMessage, 1000)
+// console.log(format2.join('\n'))
 
-setTimeout(() => {
-  clearInterval(p)
-  console.log('Прошло 6 секунд')
-}, 6000)
+// console.log(`-------------------------------------------------------`)
+
+// const money = 222.35
+
+// const format3 = locales.map((el) =>
+//   new Intl.NumberFormat(el, {
+//     style: 'currency',
+//     currency: 'USD',
+//   }).format(money)
+// )
+
+// console.log(format3.join('\n'))
+
+// console.log(`-------------------------------------------------------`)
+
+// const date = new Date()
+
+// const newDate = locales.map(function (item) {
+//   return new Intl.DateTimeFormat(item).format(date)
+// })
+
+// console.log(newDate.join('\n'))
+
+// // Урок 109 - продолжение
+// 'use strict'
+
+// const locales = [
+//   'en-US', // Америка
+//   'de-DE', // Германия
+//   'ru-RU', // Россия
+//   'kk-KZ', // Казахстан
+//   'zh-CN', // Китай
+//   'ar', // Арабские страны
+//   'hi-IN', // Индия
+//   'fr-FR', // Франция
+// ]
+
+// const date1 = new Date()
+// const options = {
+//   weekday: 'long',
+//   year: 'numeric',
+//   month: 'long',
+//   day: 'numeric',
+// }
+
+// const newDate1 = locales.map((el) =>
+//   new Intl.DateTimeFormat(el, options).format(date1)
+// )
+
+// console.log(newDate1.join('\n'))
+
+// console.log(`-------------------------------------------------------`)
+
+// const date2 = new Date()
+
+// const options2 = {
+//   hour: '2-digit',
+//   minute: '2-digit',
+//   second: '2-digit',
+// }
+
+// const newDate2 = locales.map((el) =>
+//   new Intl.DateTimeFormat(el, options2).format(date2)
+// )
+
+// console.log(newDate2.join('\n'))
+
+// console.log(`-------------------------------------------------------`)
+
+// const date3 = new Date()
+
+// const options4 = {
+//   year: 'numeric',
+//   month: 'long',
+//   day: 'numeric',
+//   hour: '2-digit',
+//   minute: '2-digit',
+//   second: '2-digit',
+// }
+
+// const newDate3 = locales.map((el) =>
+//   new Intl.DateTimeFormat(el, options4).format(date3)
+// )
+
+// console.log(newDate3.join('\n'))
+
+// console.log(`-------------------------------------------------------`)
+
+// function updateTime() {
+//   const currentDate = new Date()
+//   const options = {
+//     hour: '2-digit',
+//     minute: '2-digit',
+//     second: '2-digit',
+//   }
+
+//   const timeFormat = new Intl.DateTimeFormat('default', options)
+
+//   const formatDateTime = timeFormat.format(currentDate)
+
+//   const timeDiv = document.querySelector('.d1')
+
+//   timeDiv.textContent = formatDateTime
+// }
+
+// setInterval(updateTime, 1000)
+
+// Урок 110 - UTC (координированное всемирное время), GMT (среднее время Гринвича)
+// добавлена библиотека temporal-polyfill
+'use strict'
+
+const { Temporal } = require('temporal-polyfill')
+
+console.log(Temporal.Now.instant().toString())
+console.log(Temporal.Now.instant().toLocaleString())
