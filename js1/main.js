@@ -3023,11 +3023,181 @@
 
 // setInterval(updateTime, 1000)
 
-// Урок 110 - UTC (координированное всемирное время), GMT (среднее время Гринвича)
-// добавлена библиотека temporal-polyfill
+// // Урок 110 - UTC (координированное всемирное время), GMT (среднее время Гринвича)
+// // добавлена библиотека temporal-polyfill (работает через Node.js)
+// 'use strict'
+
+// const { Temporal } = require('temporal-polyfill')
+
+// console.log(Temporal.Now.instant().toString())
+// console.log(Temporal.Now.instant().toLocaleString())
+
+// // Урок 111 - Temporal API
+// // Документация: https://tc39.es/proposal-temporal/docs/
+// // раздел: String persistence, parsing, and formatting
+// 'use strict'
+
+// const { Temporal } = require('temporal-polyfill')
+
+// // const dat = Temporal.PlainMonthDay.from({
+// //   month: 4,
+// //   day: 28,
+// // })
+
+// // console.log(dat.toString())
+
+// // console.log(`-------------------------------------------------------`)
+
+// // const year = 2025
+// // const month = 6
+
+// // const date = new Temporal.PlainYearMonth(year, month)
+// // console.log(date.toString())
+
+// // console.log(`-------------------------------------------------------`)
+
+// // const plainDate = new Temporal.PlainDate(2025, 6, 15)
+
+// // const year = plainDate.year
+// // const month = plainDate.month
+// // const day = plainDate.day
+
+// // console.log(`Year: ${year}`)
+// // console.log(`Month: ${month}`)
+// // console.log(`Day: ${day}`)
+
+// // console.log(`-------------------------------------------------------`)
+
+// // const plainTime = new Temporal.PlainTime(12, 34, 19, 500)
+
+// // const hour = plainTime.hour
+// // const minute = plainTime.minute
+// // const second = plainTime.second
+// // const millisecond = plainTime.millisecond
+
+// // console.log(`Hour: ${hour}`)
+// // console.log(`Minute: ${minute}`)
+// // console.log(`Second: ${second}`)
+// // console.log(`Millisec: ${millisecond}`)
+
+// // console.log(`-------------------------------------------------------`)
+
+// // const plainDateTime = new Temporal.PlainDateTime(2024, 6, 15, 10, 12, 38)
+
+// // console.log(`
+// // year ${plainDateTime.year}
+// // month ${plainDateTime.month}
+// // day ${plainDateTime.day}
+// // hour ${plainDateTime.hour}
+// // minute ${plainDateTime.minute}
+// // second ${plainDateTime.second}
+// // `)
+
+// // console.log(`-------------------------------------------------------`)
+
+// const now = Temporal.Now.instant()
+// console.log(now.toLocaleString())
+
+// Урок 112 - DOM
+
+// // Урок 113 - получение элемента по узлу
+// 'use strict'
+
+// // const titleH1 = document.getElementById('title')
+
+// // console.log(titleH1)
+
+// // console.log(`-------------------------------------------------------`)
+
+// // console.log(document.getElementById('title'))
+// // console.log(document.querySelector('p'))
+
+// // const p = document.querySelectorAll('p')
+// // Array.from(p).forEach((el) => {
+// //   el.textContent = 'Hello'
+// // })
+
+// // for (let val of p) {
+// //   console.log(val)
+// //   val.textContent = 'Hello world'
+// // }
+
+// // console.log(`-------------------------------------------------------`)
+
+// // for (let val of p) {
+// //   console.log(val)
+// //   val.innerHTML = '<b>Hello world</b>'
+// // }
+
+// // console.log(`-------------------------------------------------------`)
+
+// // for (let val of p) {
+// //   console.log(val)
+// //   val.innerText = '<b>Hello world</b>'
+// // }
+
+// console.log(document.getElementsByClassName('d1'))
+// console.log(document.getElementsByTagName('p'))
+// console.log(document.querySelectorAll('p'))
+
+// console.log(document.querySelector('.d1'))
+
+// Урок 114 - addEventListener
 'use strict'
 
-const { Temporal } = require('temporal-polyfill')
+const h1Title = document.querySelector('.d1')
+const input = document.querySelector('.input')
 
-console.log(Temporal.Now.instant().toString())
-console.log(Temporal.Now.instant().toLocaleString())
+// console.log(h1Title)
+
+// h1Title.addEventListener('click', function () {
+//   // h1Title.textContent = 'мы нажали на кнопку'
+//   this.textContent = 'мы нажали на кнопку'
+// })
+
+// console.log(`-------------------------------------------------------`)
+
+// function myFn() {
+//   // h1Title.textContent = 'мы нажали на кнопку'
+//   this.textContent = 'мы нажали на кнопку'
+// }
+
+// h1Title.addEventListener('click', myFn)
+
+// console.log(`-------------------------------------------------------`)
+
+function fn1() {
+  h1Title.style.color = '#fff'
+}
+
+function fn2() {
+  h1Title.style.color = 'yellow'
+}
+
+h1Title.addEventListener('mouseover', fn1)
+h1Title.addEventListener('mouseout', fn2)
+
+console.log(`-------------------------------------------------------`)
+
+// input.addEventListener('input', function (event) {
+//   console.log(event)
+// })
+
+input.addEventListener('input', function (event) {
+  h1Title.textContent = event.target.value
+
+  if (input.value === '') {
+    h1Title.textContent = 'DOM'
+  }
+})
+
+console.log(`-------------------------------------------------------`)
+
+function randomColor() {
+  let red = Math.floor(Math.random() * 256)
+  let green = Math.floor(Math.random() * 256)
+  let blue = Math.floor(Math.random() * 256)
+  this.style.backgroundColor = `rgb(${red}, ${green}, ${blue})`
+}
+
+document.querySelector('body').addEventListener('click', randomColor)
