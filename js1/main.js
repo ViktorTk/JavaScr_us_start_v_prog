@@ -3142,62 +3142,115 @@
 
 // console.log(document.querySelector('.d1'))
 
-// Урок 114 - addEventListener
-'use strict'
+// // Урок 114 - addEventListener
+// 'use strict'
 
-const h1Title = document.querySelector('.d1')
-const input = document.querySelector('.input')
+// const h1Title = document.querySelector('.d1')
+// const input = document.querySelector('.input')
 
-// console.log(h1Title)
+// // console.log(h1Title)
 
-// h1Title.addEventListener('click', function () {
-//   // h1Title.textContent = 'мы нажали на кнопку'
-//   this.textContent = 'мы нажали на кнопку'
-// })
+// // h1Title.addEventListener('click', function () {
+// //   // h1Title.textContent = 'мы нажали на кнопку'
+// //   this.textContent = 'мы нажали на кнопку'
+// // })
 
-// console.log(`-------------------------------------------------------`)
+// // console.log(`-------------------------------------------------------`)
 
-// function myFn() {
-//   // h1Title.textContent = 'мы нажали на кнопку'
-//   this.textContent = 'мы нажали на кнопку'
+// // function myFn() {
+// //   // h1Title.textContent = 'мы нажали на кнопку'
+// //   this.textContent = 'мы нажали на кнопку'
+// // }
+
+// // h1Title.addEventListener('click', myFn)
+
+// // console.log(`-------------------------------------------------------`)
+
+// function fn1() {
+//   h1Title.style.color = '#fff'
 // }
 
-// h1Title.addEventListener('click', myFn)
+// function fn2() {
+//   h1Title.style.color = 'yellow'
+// }
+
+// h1Title.addEventListener('mouseover', fn1)
+// h1Title.addEventListener('mouseout', fn2)
 
 // console.log(`-------------------------------------------------------`)
 
-function fn1() {
-  h1Title.style.color = '#fff'
-}
-
-function fn2() {
-  h1Title.style.color = 'yellow'
-}
-
-h1Title.addEventListener('mouseover', fn1)
-h1Title.addEventListener('mouseout', fn2)
-
-console.log(`-------------------------------------------------------`)
+// // input.addEventListener('input', function (event) {
+// //   console.log(event)
+// // })
 
 // input.addEventListener('input', function (event) {
-//   console.log(event)
+//   h1Title.textContent = event.target.value
+
+//   if (input.value === '') {
+//     h1Title.textContent = 'DOM'
+//   }
 // })
 
-input.addEventListener('input', function (event) {
-  h1Title.textContent = event.target.value
+// console.log(`-------------------------------------------------------`)
 
-  if (input.value === '') {
-    h1Title.textContent = 'DOM'
-  }
-})
+// function randomColor() {
+//   let red = Math.floor(Math.random() * 256)
+//   let green = Math.floor(Math.random() * 256)
+//   let blue = Math.floor(Math.random() * 256)
+//   this.style.backgroundColor = `rgb(${red}, ${green}, ${blue})`
+// }
 
-console.log(`-------------------------------------------------------`)
+// document.querySelector('body').addEventListener('click', randomColor)
 
-function randomColor() {
-  let red = Math.floor(Math.random() * 256)
-  let green = Math.floor(Math.random() * 256)
-  let blue = Math.floor(Math.random() * 256)
-  this.style.backgroundColor = `rgb(${red}, ${green}, ${blue})`
-}
+// Урок 115 - создание HTML жлементов через JS
+'use strict'
 
-document.querySelector('body').addEventListener('click', randomColor)
+// let newElement = document.createElement('div')
+// newElement.textContent = 'Новый элемент'
+
+// let parentElement = document.querySelector('.wrapper')
+
+// // parentElement.appendChild(newElement)  // добавляет дочерний элемент в конец списка родителя
+// // parentElement.prepend(newElement)  // добавляет дочерний элемент в начало списка родителя
+// // parentElement.removeChild(newElement)  // удаляет дочерний элемент у родителя
+
+// const h1 = document.querySelector('.h1')
+// let parentH1 = h1.parentNode // получаем родительский элемент от дочернего
+
+// console.log(parentH1)
+
+// console.log(`-------------------------------------------------------`)
+
+let text = document.querySelector('.wrapper')
+
+text.insertAdjacentHTML(
+  // помещаем элемент до указанного нами элемента "text"
+  'beforebegin',
+  `
+<div>Новый элемент перед элементом</div>
+`
+)
+
+text.insertAdjacentHTML(
+  // помещаем элемент в начало указанного нами элемента "text"
+  'afterbegin',
+  `
+<div>Новый элемент в начало элемента</div>
+`
+)
+
+text.insertAdjacentHTML(
+  // помещаем элемент в конец указанного нами элемента "text"
+  'beforeend',
+  `
+<div>Новый элемент в конец элемента</div>
+`
+)
+
+text.insertAdjacentHTML(
+  // помещаем элемент после указанного нами элемента "text"
+  'afterend',
+  `
+<div>Новый элемент после элемента</div>
+`
+)
