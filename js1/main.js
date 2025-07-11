@@ -3202,55 +3202,97 @@
 
 // document.querySelector('body').addEventListener('click', randomColor)
 
-// Урок 115 - создание HTML жлементов через JS
+// // Урок 115 - создание HTML элементов через JS
+// 'use strict'
+
+// // let newElement = document.createElement('div')
+// // newElement.textContent = 'Новый элемент'
+
+// // let parentElement = document.querySelector('.wrapper')
+
+// // // parentElement.appendChild(newElement)  // добавляет дочерний элемент в конец списка родителя
+// // // parentElement.prepend(newElement)  // добавляет дочерний элемент в начало списка родителя
+// // // parentElement.removeChild(newElement)  // удаляет дочерний элемент у родителя
+
+// // const h1 = document.querySelector('.h1')
+// // let parentH1 = h1.parentNode // получаем родительский элемент от дочернего
+
+// // console.log(parentH1)
+
+// // console.log(`-------------------------------------------------------`)
+
+// let text = document.querySelector('.wrapper')
+
+// text.insertAdjacentHTML(
+//   // помещаем элемент до указанного нами элемента "text"
+//   'beforebegin',
+//   `
+// <div>Новый элемент перед элементом</div>
+// `
+// )
+
+// text.insertAdjacentHTML(
+//   // помещаем элемент в начало указанного нами элемента "text"
+//   'afterbegin',
+//   `
+// <div>Новый элемент в начало элемента</div>
+// `
+// )
+
+// text.insertAdjacentHTML(
+//   // помещаем элемент в конец указанного нами элемента "text"
+//   'beforeend',
+//   `
+// <div>Новый элемент в конец элемента</div>
+// `
+// )
+
+// text.insertAdjacentHTML(
+//   // помещаем элемент после указанного нами элемента "text"
+//   'afterend',
+//   `
+// <div>Новый элемент после элемента</div>
+// `
+// )
+
+// Урок 116 - добавление классов к HTML элементам через JS
 'use strict'
 
-// let newElement = document.createElement('div')
-// newElement.textContent = 'Новый элемент'
+const h1Title = document.querySelector('.h1')
+const input = document.querySelector('.input')
+const btn = document.querySelector('.btn')
+const addBtn = document.querySelector('.add')
 
-// let parentElement = document.querySelector('.wrapper')
-
-// // parentElement.appendChild(newElement)  // добавляет дочерний элемент в конец списка родителя
-// // parentElement.prepend(newElement)  // добавляет дочерний элемент в начало списка родителя
-// // parentElement.removeChild(newElement)  // удаляет дочерний элемент у родителя
-
-// const h1 = document.querySelector('.h1')
-// let parentH1 = h1.parentNode // получаем родительский элемент от дочернего
-
-// console.log(parentH1)
+// h1Title.addEventListener('click', function () {
+//   // h1Title.classList.add('color-blue') // добавили класс по клику
+//   // input.classList.remove('red') // убрали класс по клику
+//   // input.remove() // убрали элемент "input" по клику
+//   // input.classList.toggle('red') // добавляет класс, если его нет ИЛИ удаляет класс, если он есть
+//   if (input.classList.contains('input')) {
+//     document.querySelector('body').style.backgroundColor = 'red'
+//   } else {
+//     document.querySelector('body').style.backgroundColor = 'green'
+//   }
+// })
 
 // console.log(`-------------------------------------------------------`)
 
-let text = document.querySelector('.wrapper')
+const arr = ['яблоко', 'дом', 'автомобиль']
 
-text.insertAdjacentHTML(
-  // помещаем элемент до указанного нами элемента "text"
-  'beforebegin',
-  `
-<div>Новый элемент перед элементом</div>
-`
-)
+function getRandomWord() {
+  let randomIndex = Math.floor(Math.random() * arr.length)
+  let randomWord = arr[randomIndex]
+  return randomWord
+}
 
-text.insertAdjacentHTML(
-  // помещаем элемент в начало указанного нами элемента "text"
-  'afterbegin',
-  `
-<div>Новый элемент в начало элемента</div>
-`
-)
+console.log(getRandomWord())
 
-text.insertAdjacentHTML(
-  // помещаем элемент в конец указанного нами элемента "text"
-  'beforeend',
-  `
-<div>Новый элемент в конец элемента</div>
-`
-)
+btn.addEventListener('click', function () {
+  h1Title.textContent = getRandomWord()
+})
 
-text.insertAdjacentHTML(
-  // помещаем элемент после указанного нами элемента "text"
-  'afterend',
-  `
-<div>Новый элемент после элемента</div>
-`
-)
+addBtn.addEventListener('click', function () {
+  arr.push(input.value)
+  input.value = ''
+  console.log(arr)
+})

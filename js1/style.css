@@ -30,3 +30,18 @@ input {
   padding: 10px 30px;
   font-size: 25px;
 }
+
+.btn,
+.add {
+  display: block;
+  padding: 10px 30px;
+  cursor: pointer;
+  margin: 20px;
+  font-size: 30px;
+}
+
+.color-blue {
+  background-color: white;
+  color: blue;
+  padding: 10px 20px;
+}
