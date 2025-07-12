@@ -3297,95 +3297,104 @@
 //   console.log(arr)
 // })
 
-// Урок 117 - делигирование событий
+// // Урок 117 - делигирование событий
+// 'use strict'
+
+// // const d1 = document.querySelector('.d1')
+// // const d2 = document.querySelector('.d2')
+// // const d3 = document.querySelector('.d3')
+
+// // function randomColor(content) {
+// //   let red = Math.floor(Math.random() * 256)
+// //   let green = Math.floor(Math.random() * 256)
+// //   let blue = Math.floor(Math.random() * 256)
+
+// //   content.style.backgroundColor = `rgb(${red}, ${green}, ${blue})`
+// //   return content
+// // }
+
+// // d1.addEventListener('click', function () {
+// //   randomColor(d1)
+// //   console.log(`Сработало событие на родительском элементе DIV 1`)
+// // })
+
+// // d2.addEventListener('click', function () {
+// //   randomColor(d2)
+// //   console.log(`Сработало событие на родительском элементе DIV 2`)
+// // })
+
+// // d3.addEventListener('click', function () {
+// //   randomColor(d3)
+// //   console.log(`Сработало событие на родительском элементе DIV 3`)
+// // })
+
+// // console.log(`-------------------------------------------------------`)
+
+// // const input = document.querySelector('.input')
+// // const list = document.querySelector('.d6')
+
+// // input.addEventListener('keypress', function (event) {
+// //   if (event.key === 'Enter' && input.value.trim() !== '') {
+// //     const taskText = input.value.trim()
+// //     input.value = ''
+
+// //     const div = document.createElement('div')
+// //     div.textContent = taskText
+
+// //     const deleteBtn = document.createElement('button')
+// //     deleteBtn.textContent = 'Удалить'
+// //     deleteBtn.classList.add('delete')
+
+// //     div.append(deleteBtn)
+// //     list.append(div)
+// //   }
+// // })
+
+// // list.addEventListener('click', function (e) {
+// //   if (e.target.classList.contains('delete')) {
+// //     e.target.parentElement.remove()
+// //   }
+// // })
+
+// // console.log(`-------------------------------------------------------`)
+
+// // const parentElement = document.querySelector('.wrapper')
+
+// // parentElement.addEventListener('click', function (event) {
+// //   if (event.target.classList.contains('h1')) {
+// //     console.log('Нажан элемент с классом h1')
+// //   }
+// // })
+
+// // console.log(`-------------------------------------------------------`)
+
+// // // БЕЗ делигирования события
+// // const links = document.querySelectorAll('.link')
+
+// // links.forEach((el) => {
+// //   el.addEventListener('click', function (e) {
+// //     e.preventDefault()
+// //     el.classList.toggle('k1')
+// //   })
+// // })
+
+// // console.log(`-------------------------------------------------------`)
+
+// // С делигированием событий
+
+// document.querySelector('.nav').addEventListener('click', function (e) {
+//   e.preventDefault()
+//   if (e.target.classList.contains('link')) {
+//     e.target.classList.toggle('k1')
+//     console.log('Ссылка кликнута')
+//   }
+// })
+
+// Урок 118 - defer async
 'use strict'
 
-// const d1 = document.querySelector('.d1')
-// const d2 = document.querySelector('.d2')
-// const d3 = document.querySelector('.d3')
-
-// function randomColor(content) {
-//   let red = Math.floor(Math.random() * 256)
-//   let green = Math.floor(Math.random() * 256)
-//   let blue = Math.floor(Math.random() * 256)
-
-//   content.style.backgroundColor = `rgb(${red}, ${green}, ${blue})`
-//   return content
-// }
-
-// d1.addEventListener('click', function () {
-//   randomColor(d1)
-//   console.log(`Сработало событие на родительском элементе DIV 1`)
-// })
-
-// d2.addEventListener('click', function () {
-//   randomColor(d2)
-//   console.log(`Сработало событие на родительском элементе DIV 2`)
-// })
-
-// d3.addEventListener('click', function () {
-//   randomColor(d3)
-//   console.log(`Сработало событие на родительском элементе DIV 3`)
-// })
-
-// console.log(`-------------------------------------------------------`)
-
-// const input = document.querySelector('.input')
-// const list = document.querySelector('.d6')
-
-// input.addEventListener('keypress', function (event) {
-//   if (event.key === 'Enter' && input.value.trim() !== '') {
-//     const taskText = input.value.trim()
-//     input.value = ''
-
-//     const div = document.createElement('div')
-//     div.textContent = taskText
-
-//     const deleteBtn = document.createElement('button')
-//     deleteBtn.textContent = 'Удалить'
-//     deleteBtn.classList.add('delete')
-
-//     div.append(deleteBtn)
-//     list.append(div)
-//   }
-// })
-
-// list.addEventListener('click', function (e) {
-//   if (e.target.classList.contains('delete')) {
-//     e.target.parentElement.remove()
-//   }
-// })
-
-// console.log(`-------------------------------------------------------`)
-
-// const parentElement = document.querySelector('.wrapper')
-
-// parentElement.addEventListener('click', function (event) {
-//   if (event.target.classList.contains('h1')) {
-//     console.log('Нажан элемент с классом h1')
-//   }
-// })
-
-// console.log(`-------------------------------------------------------`)
-
-// // БЕЗ делигирования события
-// const links = document.querySelectorAll('.link')
-
-// links.forEach((el) => {
-//   el.addEventListener('click', function (e) {
-//     e.preventDefault()
-//     el.classList.toggle('k1')
-//   })
-// })
-
-// console.log(`-------------------------------------------------------`)
-
-// С делигированием событий
-
-document.querySelector('.nav').addEventListener('click', function (e) {
-  e.preventDefault()
-  if (e.target.classList.contains('link')) {
-    e.target.classList.toggle('k1')
-    console.log('Ссылка кликнута')
-  }
+// DOMContentLoaded - скрипт сработает после загрузке HTML документа
+document.addEventListener('DOMContentLoaded', function () {
+  const h1 = document.querySelector('.h1')
+  h1.textContent = 'DOM загружен'
 })
