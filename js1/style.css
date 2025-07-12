@@ -45,3 +45,51 @@ input {
   color: blue;
   padding: 10px 20px;
 }
+
+button {
+  margin: 10px;
+  padding: 10px 20px;
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.d1 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 300px;
+  height: 300px;
+  border: 1px solid #fff;
+}
+
+.d2 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 200px;
+  height: 200px;
+  border: 1px solid #fff;
+}
+
+.d3 {
+  width: 120px;
+  height: 120px;
+  border: 1px solid #fff;
+}
+
+.nav {
+  height: 130px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.link {
+  color: #fff;
+  text-decoration: none;
+  font-style: 35px;
+}
+
+.k1 {
+  background-color: red;
+}

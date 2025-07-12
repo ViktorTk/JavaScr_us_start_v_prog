@@ -3255,44 +3255,137 @@
 // `
 // )
 
-// Урок 116 - добавление классов к HTML элементам через JS
+// // Урок 116 - добавление классов к HTML элементам через JS
+// 'use strict'
+
+// const h1Title = document.querySelector('.h1')
+// const input = document.querySelector('.input')
+// const btn = document.querySelector('.btn')
+// const addBtn = document.querySelector('.add')
+
+// // h1Title.addEventListener('click', function () {
+// //   // h1Title.classList.add('color-blue') // добавили класс по клику
+// //   // input.classList.remove('red') // убрали класс по клику
+// //   // input.remove() // убрали элемент "input" по клику
+// //   // input.classList.toggle('red') // добавляет класс, если его нет ИЛИ удаляет класс, если он есть
+// //   if (input.classList.contains('input')) {
+// //     document.querySelector('body').style.backgroundColor = 'red'
+// //   } else {
+// //     document.querySelector('body').style.backgroundColor = 'green'
+// //   }
+// // })
+
+// // console.log(`-------------------------------------------------------`)
+
+// const arr = ['яблоко', 'дом', 'автомобиль']
+
+// function getRandomWord() {
+//   let randomIndex = Math.floor(Math.random() * arr.length)
+//   let randomWord = arr[randomIndex]
+//   return randomWord
+// }
+
+// console.log(getRandomWord())
+
+// btn.addEventListener('click', function () {
+//   h1Title.textContent = getRandomWord()
+// })
+
+// addBtn.addEventListener('click', function () {
+//   arr.push(input.value)
+//   input.value = ''
+//   console.log(arr)
+// })
+
+// Урок 117 - делигирование событий
 'use strict'
 
-const h1Title = document.querySelector('.h1')
-const input = document.querySelector('.input')
-const btn = document.querySelector('.btn')
-const addBtn = document.querySelector('.add')
+// const d1 = document.querySelector('.d1')
+// const d2 = document.querySelector('.d2')
+// const d3 = document.querySelector('.d3')
 
-// h1Title.addEventListener('click', function () {
-//   // h1Title.classList.add('color-blue') // добавили класс по клику
-//   // input.classList.remove('red') // убрали класс по клику
-//   // input.remove() // убрали элемент "input" по клику
-//   // input.classList.toggle('red') // добавляет класс, если его нет ИЛИ удаляет класс, если он есть
-//   if (input.classList.contains('input')) {
-//     document.querySelector('body').style.backgroundColor = 'red'
-//   } else {
-//     document.querySelector('body').style.backgroundColor = 'green'
+// function randomColor(content) {
+//   let red = Math.floor(Math.random() * 256)
+//   let green = Math.floor(Math.random() * 256)
+//   let blue = Math.floor(Math.random() * 256)
+
+//   content.style.backgroundColor = `rgb(${red}, ${green}, ${blue})`
+//   return content
+// }
+
+// d1.addEventListener('click', function () {
+//   randomColor(d1)
+//   console.log(`Сработало событие на родительском элементе DIV 1`)
+// })
+
+// d2.addEventListener('click', function () {
+//   randomColor(d2)
+//   console.log(`Сработало событие на родительском элементе DIV 2`)
+// })
+
+// d3.addEventListener('click', function () {
+//   randomColor(d3)
+//   console.log(`Сработало событие на родительском элементе DIV 3`)
+// })
+
+// console.log(`-------------------------------------------------------`)
+
+// const input = document.querySelector('.input')
+// const list = document.querySelector('.d6')
+
+// input.addEventListener('keypress', function (event) {
+//   if (event.key === 'Enter' && input.value.trim() !== '') {
+//     const taskText = input.value.trim()
+//     input.value = ''
+
+//     const div = document.createElement('div')
+//     div.textContent = taskText
+
+//     const deleteBtn = document.createElement('button')
+//     deleteBtn.textContent = 'Удалить'
+//     deleteBtn.classList.add('delete')
+
+//     div.append(deleteBtn)
+//     list.append(div)
+//   }
+// })
+
+// list.addEventListener('click', function (e) {
+//   if (e.target.classList.contains('delete')) {
+//     e.target.parentElement.remove()
 //   }
 // })
 
 // console.log(`-------------------------------------------------------`)
 
-const arr = ['яблоко', 'дом', 'автомобиль']
+// const parentElement = document.querySelector('.wrapper')
 
-function getRandomWord() {
-  let randomIndex = Math.floor(Math.random() * arr.length)
-  let randomWord = arr[randomIndex]
-  return randomWord
-}
+// parentElement.addEventListener('click', function (event) {
+//   if (event.target.classList.contains('h1')) {
+//     console.log('Нажан элемент с классом h1')
+//   }
+// })
 
-console.log(getRandomWord())
+// console.log(`-------------------------------------------------------`)
 
-btn.addEventListener('click', function () {
-  h1Title.textContent = getRandomWord()
-})
+// // БЕЗ делигирования события
+// const links = document.querySelectorAll('.link')
 
-addBtn.addEventListener('click', function () {
-  arr.push(input.value)
-  input.value = ''
-  console.log(arr)
+// links.forEach((el) => {
+//   el.addEventListener('click', function (e) {
+//     e.preventDefault()
+//     el.classList.toggle('k1')
+//   })
+// })
+
+// console.log(`-------------------------------------------------------`)
+
+// С делигированием событий
+
+document.querySelector('.nav').addEventListener('click', function (e) {
+  e.preventDefault()
+  if (e.target.classList.contains('link')) {
+    e.target.classList.toggle('k1')
+    console.log('Ссылка кликнута')
+  }
 })
