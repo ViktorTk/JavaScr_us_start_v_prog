@@ -3390,11 +3390,31 @@
 //   }
 // })
 
-// Урок 118 - defer async
+// // Урок 118 - defer async
+// 'use strict'
+
+// // DOMContentLoaded - скрипт сработает после загрузке HTML документа
+// document.addEventListener('DOMContentLoaded', function () {
+//   const h1 = document.querySelector('.h1')
+//   h1.textContent = 'DOM загружен'
+// })
+
+// Урок 119 - работа с атрибутами через JS (и data-атрибуты)
 'use strict'
 
-// DOMContentLoaded - скрипт сработает после загрузке HTML документа
-document.addEventListener('DOMContentLoaded', function () {
-  const h1 = document.querySelector('.h1')
-  h1.textContent = 'DOM загружен'
-})
+const link = document.querySelector('.link')
+link.setAttribute('href', 'https://youtube.com/') // setAttribute - изменяет атрибут на нужное нам значение
+
+const h1 = document.querySelector('.h1')
+h1.setAttribute('class', 'title')
+
+h1.setAttribute('data-', 'price')
+
+console.log(`-------------------------------------------------------`)
+
+const getAttributeHref = link.getAttribute('href') // getAttribute - позволяет получить атрибут
+console.log(getAttributeHref)
+const getAttributeTarget = link.getAttribute('target')
+console.log(getAttributeTarget)
+
+console.log(h1.getAttribute('data-'))
