@@ -3399,22 +3399,43 @@
 //   h1.textContent = 'DOM загружен'
 // })
 
-// Урок 119 - работа с атрибутами через JS (и data-атрибуты)
+// // Урок 119 - работа с атрибутами через JS (и data-атрибуты)
+// 'use strict'
+
+// const link = document.querySelector('.link')
+// link.setAttribute('href', 'https://youtube.com/') // setAttribute - изменяет атрибут на нужное нам значение
+
+// const h1 = document.querySelector('.h1')
+// h1.setAttribute('class', 'title')
+
+// h1.setAttribute('data-', 'price')
+
+// console.log(`-------------------------------------------------------`)
+
+// const getAttributeHref = link.getAttribute('href') // getAttribute - позволяет получить атрибут
+// console.log(getAttributeHref)
+// const getAttributeTarget = link.getAttribute('target')
+// console.log(getAttributeTarget)
+
+// console.log(h1.getAttribute('data-'))
+
+// Урок 120 - Объект dataset и метод closest
 'use strict'
 
-const link = document.querySelector('.link')
-link.setAttribute('href', 'https://youtube.com/') // setAttribute - изменяет атрибут на нужное нам значение
+// const userElement = document.querySelector('.user')
 
-const h1 = document.querySelector('.h1')
-h1.setAttribute('class', 'title')
+// console.log(userElement.dataset.age)
+// console.log(userElement.dataset.name)
 
-h1.setAttribute('data-', 'price')
+// const myName = userElement.dataset.name
+// console.log(myName)
 
-console.log(`-------------------------------------------------------`)
+// console.log(`-------------------------------------------------------`)
 
-const getAttributeHref = link.getAttribute('href') // getAttribute - позволяет получить атрибут
-console.log(getAttributeHref)
-const getAttributeTarget = link.getAttribute('target')
-console.log(getAttributeTarget)
+const btn = document.querySelector('.btn')
 
-console.log(h1.getAttribute('data-'))
+const parent = btn.closest('.d1')
+
+parent.addEventListener('click', () => {
+  console.log('Кликнули на родителе с классом d1')
+})
