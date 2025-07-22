@@ -3419,23 +3419,38 @@
 
 // console.log(h1.getAttribute('data-'))
 
-// Урок 120 - Объект dataset и метод closest
+// // Урок 120 - Объект dataset и метод closest
+// 'use strict'
+
+// // const userElement = document.querySelector('.user')
+
+// // console.log(userElement.dataset.age)
+// // console.log(userElement.dataset.name)
+
+// // const myName = userElement.dataset.name
+// // console.log(myName)
+
+// // console.log(`-------------------------------------------------------`)
+
+// const btn = document.querySelector('.btn')
+
+// const parent = btn.closest('.d1')
+
+// parent.addEventListener('click', () => {
+//   console.log('Кликнули на родителе с классом d1')
+// })
+
+// Урок 123 - взаимодействие с HTML-тегом "dialog" (модальное окно)
 'use strict'
 
-// const userElement = document.querySelector('.user')
+const dialog = document.querySelector('.dialog')
+const openModal = document.querySelector('.open')
+const closeModal = document.querySelector('.close')
 
-// console.log(userElement.dataset.age)
-// console.log(userElement.dataset.name)
+openModal.addEventListener('click', function () {
+  dialog.showModal()
+})
 
-// const myName = userElement.dataset.name
-// console.log(myName)
-
-// console.log(`-------------------------------------------------------`)
-
-const btn = document.querySelector('.btn')
-
-const parent = btn.closest('.d1')
-
-parent.addEventListener('click', () => {
-  console.log('Кликнули на родителе с классом d1')
+closeModal.addEventListener('click', () => {
+  dialog.close()
 })
