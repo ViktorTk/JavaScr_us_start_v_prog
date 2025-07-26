@@ -1,3 +1,7 @@
+html {
+  /* scroll-behavior: smooth; */
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -101,4 +105,50 @@ button {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+}
+
+/* 126 */
+
+.header {
+  background-color: #272727;
+}
+
+.nav__ul {
+  display: flex;
+  column-gap: 50px;
+  list-style-type: none;
+}
+
+.nav__link {
+  color: #fbfbfb;
+  text-decoration: none;
+  transition: all 0.3s;
+}
+
+.nav__link:hover {
+  color: lightgrey;
+  text-decoration: underline;
+}
+
+.content {
+  height: 80%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#sec1 {
+  background-color: rgba(255, 0, 0, 0.15);
+}
+
+#sec2 {
+  background-color: rgba(0, 128, 0, 0.15);
+}
+
+#sec3 {
+  background-color: rgba(0, 0, 255, 0.15);
+}
+
+#sec4 {
+  background-color: rgba(109, 47, 255, 0.15);
 }

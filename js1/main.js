@@ -3441,16 +3441,66 @@
 // })
 
 // Урок 123 - взаимодействие с HTML-тегом "dialog" (модальное окно)
+// 'use strict'
+
+// const dialog = document.querySelector('.dialog')
+// const openModal = document.querySelector('.open')
+// const closeModal = document.querySelector('.close')
+
+// openModal.addEventListener('click', function () {
+//   dialog.showModal()
+// })
+
+// closeModal.addEventListener('click', () => {
+//   dialog.close()
+// })
+
+// Урок 126 - плавный скролл (через CSS / через JS)
 'use strict'
 
-const dialog = document.querySelector('.dialog')
-const openModal = document.querySelector('.open')
-const closeModal = document.querySelector('.close')
+const navLinksHeader = document.querySelectorAll('.nav__link')
 
-openModal.addEventListener('click', function () {
-  dialog.showModal()
+// // - через цикл "for of"
+// for (let link of navLinksHeader) {
+//   link.addEventListener('click', function (e) {
+//     e.preventDefault()
+//     const href = this.getAttribute('href')
+//     console.log(href)
+//     document.querySelector(href).scrollIntoView({
+//       behavior: 'smooth',
+//     })
+//   })
+// }
+
+// ------------------------------------------------------------------
+
+// // - через цикл "forEach"
+// navLinksHeader.forEach((el) => {
+//   el.addEventListener('click', function (e) {
+//     e.preventDefault()
+//     const href = this.getAttribute('href')
+//     document.querySelector(href).scrollIntoView({
+//       behavior: 'smooth',
+//     })
+//   })
+// })
+
+// ------------------------------------------------------------------
+
+// - через делигирование событий
+document.querySelector('.nav__ul').addEventListener('click', function (event) {
+  event.preventDefault()
+  if (event.target.classList.contains('nav__link')) {
+    document
+      .querySelector(event.target.getAttribute('href'))
+      .scrollIntoView({ behavior: 'smooth' })
+  }
 })
 
-closeModal.addEventListener('click', () => {
-  dialog.close()
+// -------------------------------
+
+// - возврат к хедеру
+document.getElementById('top').addEventListener('click', function (e) {
+  e.preventDefault()
+  document.querySelector('.header').scrollIntoView({ behavior: 'smooth' })
 })

@@ -12,16 +12,36 @@
     от HTML -->
   </head>
   <body>
-    <dialog class="dialog">
-      <h1>Привет мир!</h1>
-      <p>
-        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sit omnis
-        tenetur animi, sed asperiores quis. Amet expedita at nulla, quos
-        nesciunt exercitationem, repellendus porro doloremque accusamus quis rem
-        fugit perspiciatis.
-      </p>
-      <button class="close">закрыть</button>
-    </dialog>
-    <button class="open">открыть</button>
+    <header id="head" class="header">
+      <nav class="nav">
+        <ul class="nav__ul">
+          <li class="nav__list">
+            <a href="#sec1" class="nav__link">Section 1</a>
+          </li>
+          <li class="nav__list">
+            <a href="#sec2" class="nav__link">Section 2</a>
+          </li>
+          <li class="nav__list">
+            <a href="#sec3" class="nav__link">Section 3</a>
+          </li>
+          <li class="nav__list">
+            <a href="#sec4" class="nav__link">Section 4</a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+    <section id="sec1" class="content">
+      <h2>Section 1</h2>
+    </section>
+    <section id="sec2" class="content">
+      <h2>Section 2</h2>
+    </section>
+    <section id="sec3" class="content">
+      <h2>Section 3</h2>
+    </section>
+    <section id="sec4" class="content">
+      <h2>Section 4</h2>
+      <a id="top" href="#head">наверх</a>
+    </section>
   </body>
 </html>
