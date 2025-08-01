@@ -161,3 +161,59 @@ button {
   color: #000;
   padding: 1rem;
 }
+
+/* 129 */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  height: 100vh;
+  font-weight: 500;
+  font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif;
+  background-color: #fff;
+  color: #fff;
+}
+
+a {
+  display: inline-block;
+  color: inherit;
+  text-decoration: none;
+  font-size: 2rem;
+}
+
+header {
+  background-color: #252525;
+  margin-bottom: 20rem;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  height: 10rem;
+}
+
+.block {
+  width: 80rem;
+  height: 30rem;
+  box-shadow: 4px 4px 34px -7px rgba(0, 0, 0, 0.75);
+  margin-bottom: 5rem;
+  color: #252525;
+  font-size: 6rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
